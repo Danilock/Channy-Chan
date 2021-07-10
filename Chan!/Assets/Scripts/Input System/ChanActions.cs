@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/Input System/ChanActions.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/Scripts/Input System/ChanActions.inputactions'
 
 using System;
 using System.Collections;
@@ -31,6 +31,46 @@ public class @ChanActions : IInputActionCollection, IDisposable
                     ""type"": ""Button"",
                     ""id"": ""745e0acc-d88d-436a-a078-b046bdd9091f"",
                     ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""e9e88582-742f-4655-85ac-92a9d30f5363"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Pick Character 1"",
+                    ""type"": ""Value"",
+                    ""id"": ""d3dacd50-0c26-4ac7-a661-af884142f2e9"",
+                    ""expectedControlType"": ""Integer"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Pick Character 2"",
+                    ""type"": ""Value"",
+                    ""id"": ""6fa21944-6b56-4ccb-a337-b992a1f5d5e2"",
+                    ""expectedControlType"": ""Integer"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Pick Character 3"",
+                    ""type"": ""Value"",
+                    ""id"": ""7f5a20e5-7fbb-4570-aeca-8b00cc4a4e9c"",
+                    ""expectedControlType"": ""Integer"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Pick Character 4"",
+                    ""type"": ""Value"",
+                    ""id"": ""6e2db45f-7cbc-4885-ae1d-a306d2ef67ca"",
+                    ""expectedControlType"": ""Integer"",
                     ""processors"": """",
                     ""interactions"": """"
                 }
@@ -220,6 +260,28 @@ public class @ChanActions : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""XR"",
                     ""action"": ""Fire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b701fb37-3e1a-4f84-ab30-1166736fb216"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b1182939-1dfc-4c4f-a03c-61e56a484edf"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -799,6 +861,11 @@ public class @ChanActions : IInputActionCollection, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
+        m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
+        m_Player_PickCharacter1 = m_Player.FindAction("Pick Character 1", throwIfNotFound: true);
+        m_Player_PickCharacter2 = m_Player.FindAction("Pick Character 2", throwIfNotFound: true);
+        m_Player_PickCharacter3 = m_Player.FindAction("Pick Character 3", throwIfNotFound: true);
+        m_Player_PickCharacter4 = m_Player.FindAction("Pick Character 4", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -862,12 +929,22 @@ public class @ChanActions : IInputActionCollection, IDisposable
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Fire;
+    private readonly InputAction m_Player_Jump;
+    private readonly InputAction m_Player_PickCharacter1;
+    private readonly InputAction m_Player_PickCharacter2;
+    private readonly InputAction m_Player_PickCharacter3;
+    private readonly InputAction m_Player_PickCharacter4;
     public struct PlayerActions
     {
         private @ChanActions m_Wrapper;
         public PlayerActions(@ChanActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Fire => m_Wrapper.m_Player_Fire;
+        public InputAction @Jump => m_Wrapper.m_Player_Jump;
+        public InputAction @PickCharacter1 => m_Wrapper.m_Player_PickCharacter1;
+        public InputAction @PickCharacter2 => m_Wrapper.m_Player_PickCharacter2;
+        public InputAction @PickCharacter3 => m_Wrapper.m_Player_PickCharacter3;
+        public InputAction @PickCharacter4 => m_Wrapper.m_Player_PickCharacter4;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -883,6 +960,21 @@ public class @ChanActions : IInputActionCollection, IDisposable
                 @Fire.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
                 @Fire.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
                 @Fire.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
+                @Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
+                @Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
+                @Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
+                @PickCharacter1.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickCharacter1;
+                @PickCharacter1.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickCharacter1;
+                @PickCharacter1.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickCharacter1;
+                @PickCharacter2.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickCharacter2;
+                @PickCharacter2.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickCharacter2;
+                @PickCharacter2.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickCharacter2;
+                @PickCharacter3.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickCharacter3;
+                @PickCharacter3.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickCharacter3;
+                @PickCharacter3.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickCharacter3;
+                @PickCharacter4.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickCharacter4;
+                @PickCharacter4.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickCharacter4;
+                @PickCharacter4.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickCharacter4;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -893,6 +985,21 @@ public class @ChanActions : IInputActionCollection, IDisposable
                 @Fire.started += instance.OnFire;
                 @Fire.performed += instance.OnFire;
                 @Fire.canceled += instance.OnFire;
+                @Jump.started += instance.OnJump;
+                @Jump.performed += instance.OnJump;
+                @Jump.canceled += instance.OnJump;
+                @PickCharacter1.started += instance.OnPickCharacter1;
+                @PickCharacter1.performed += instance.OnPickCharacter1;
+                @PickCharacter1.canceled += instance.OnPickCharacter1;
+                @PickCharacter2.started += instance.OnPickCharacter2;
+                @PickCharacter2.performed += instance.OnPickCharacter2;
+                @PickCharacter2.canceled += instance.OnPickCharacter2;
+                @PickCharacter3.started += instance.OnPickCharacter3;
+                @PickCharacter3.performed += instance.OnPickCharacter3;
+                @PickCharacter3.canceled += instance.OnPickCharacter3;
+                @PickCharacter4.started += instance.OnPickCharacter4;
+                @PickCharacter4.performed += instance.OnPickCharacter4;
+                @PickCharacter4.canceled += instance.OnPickCharacter4;
             }
         }
     }
@@ -1051,6 +1158,11 @@ public class @ChanActions : IInputActionCollection, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
+        void OnPickCharacter1(InputAction.CallbackContext context);
+        void OnPickCharacter2(InputAction.CallbackContext context);
+        void OnPickCharacter3(InputAction.CallbackContext context);
+        void OnPickCharacter4(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

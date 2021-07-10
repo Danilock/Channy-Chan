@@ -20,6 +20,46 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "e9e88582-742f-4655-85ac-92a9d30f5363",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Pick Character 1",
+                    "type": "Value",
+                    "id": "d3dacd50-0c26-4ac7-a661-af884142f2e9",
+                    "expectedControlType": "Integer",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Pick Character 2",
+                    "type": "Value",
+                    "id": "6fa21944-6b56-4ccb-a337-b992a1f5d5e2",
+                    "expectedControlType": "Integer",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Pick Character 3",
+                    "type": "Value",
+                    "id": "7f5a20e5-7fbb-4570-aeca-8b00cc4a4e9c",
+                    "expectedControlType": "Integer",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Pick Character 4",
+                    "type": "Value",
+                    "id": "6e2db45f-7cbc-4885-ae1d-a306d2ef67ca",
+                    "expectedControlType": "Integer",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -207,6 +247,28 @@
                     "processors": "",
                     "groups": "XR",
                     "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b701fb37-3e1a-4f84-ab30-1166736fb216",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b1182939-1dfc-4c4f-a03c-61e56a484edf",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

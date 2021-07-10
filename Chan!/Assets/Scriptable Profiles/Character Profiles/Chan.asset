@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3baea5e9fc8e5f448f873bfa5249332, type: 3}
+  m_Name: Chan
+  m_EditorClassIdentifier: 
+  Portrait: {fileID: 0}
+  Element: 0
+  Name: Kohaku Otori
+  Description: 'This character is a DPS. She uses fire elements with her sword and
+    weapon.
+
+'
+  BaseHealth: 100
+  BaseDamage: 50
