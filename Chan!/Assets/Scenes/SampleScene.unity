@@ -514,7 +514,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _characters:
-  - Character: {fileID: 11400000, guid: cd79af8b42df24840b4b96ebfcd48958, type: 2}
+  - Profile: {fileID: 11400000, guid: cd79af8b42df24840b4b96ebfcd48958, type: 2}
     CharacterEXP:
       CurrentLevel: 1
       MaxLevel: 20
@@ -524,7 +524,7 @@ MonoBehaviour:
         m_PersistentCalls:
           m_Calls: []
     Element: 0
-  - Character: {fileID: 11400000, guid: 64c8a5bf3ac9f39449327fae288d594d, type: 2}
+  - Profile: {fileID: 11400000, guid: 64c8a5bf3ac9f39449327fae288d594d, type: 2}
     CharacterEXP:
       CurrentLevel: 1
       MaxLevel: 20
@@ -537,6 +537,8 @@ MonoBehaviour:
   OnChangeCharacter:
     m_PersistentCalls:
       m_Calls: []
+  _switchCooldown: 1
+  _canSwitch: 1
 --- !u!114 &2075507023
 MonoBehaviour:
   m_ObjectHideFlags: 0

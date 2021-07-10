@@ -44,17 +44,17 @@ public class @ChanActions : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""Pick Character 1"",
-                    ""type"": ""Value"",
+                    ""type"": ""Button"",
                     ""id"": ""d3dacd50-0c26-4ac7-a661-af884142f2e9"",
-                    ""expectedControlType"": ""Integer"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
                 },
                 {
                     ""name"": ""Pick Character 2"",
-                    ""type"": ""Value"",
+                    ""type"": ""Button"",
                     ""id"": ""6fa21944-6b56-4ccb-a337-b992a1f5d5e2"",
-                    ""expectedControlType"": ""Integer"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
                 },
@@ -282,6 +282,28 @@ public class @ChanActions : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1043d4d0-44ac-4dfb-a630-0f147abd7fad"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pick Character 1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2545a79d-aeae-4f34-942c-27f43a37319e"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pick Character 2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }

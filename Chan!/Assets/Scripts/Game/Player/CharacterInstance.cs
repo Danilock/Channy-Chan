@@ -10,7 +10,7 @@ namespace Game
     [System.Serializable]
     public class CharacterInstance
     {
-        public ScriptableCharacterProfile Character;
+        public ScriptableCharacterProfile Profile;
 
         public LevelEXP CharacterEXP = new LevelEXP();
 
@@ -29,16 +29,16 @@ namespace Game
 
         public CharacterInstance(ScriptableCharacterProfile profile)
         {
-            Character = profile;
+            Profile = profile;
 
             SetupCharacter
             (
-                Character.name,
-                Character.Description,
-                Character.BaseDamage,
-                Character.BaseHealth,
-                Character.Element,
-                Character.Portrait
+                Profile.name,
+                Profile.Description,
+                Profile.BaseDamage,
+                Profile.BaseHealth,
+                Profile.Element,
+                Profile.Portrait
             );
         }
         #endregion

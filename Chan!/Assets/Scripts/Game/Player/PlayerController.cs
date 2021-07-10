@@ -29,7 +29,11 @@ namespace Game
         }
         #endregion
 
-
+        #region External Components
+        public Animator Animator { get; set; }
+        private CharacterHandler _characterHandler;
+        private SpriteRenderer _spriteRenderer;
+        #endregion
         private void Awake()
         {
             #region Singleton
@@ -43,6 +47,10 @@ namespace Game
 
             PlayerMachine = new StateMachine<PlayerController>(this);
             _ch2D = GetComponent<CharacterController2D>();
+            _characterHandler = GetComponent<CharacterHandler>();
+            _spriteRenderer = GetComponent<SpriteRenderer>();
+
+            _characterHandler.OnChangeCharacter.AddListener(OnSwitchCharacter);
         }
 
         private void Start()
@@ -53,6 +61,12 @@ namespace Game
         private void Update()
         {
             PlayerMachine.CurrentState.TickState(this);
+        }
+
+        public void OnSwitchCharacter(CharacterInstance character)
+        {
+            _spriteRenderer.sprite = character.Portrait;
+            gameObject.name = character.Name;
         }
     }
 }
