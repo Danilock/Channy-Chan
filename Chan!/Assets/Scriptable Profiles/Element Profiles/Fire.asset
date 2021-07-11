@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c78d97c5e4c5042a017edfc148d8bb, type: 3}
   m_Name: Fire
   m_EditorClassIdentifier: 
-  Name: Fire
-  WeakerAgainst: 01000000
-  StrongAgainst: 02000000
+  Element:
+    Name: Pyromus
+    Type: 0
+    WeakerAgainst: 01000000
+    StrongAgainst: 02000000

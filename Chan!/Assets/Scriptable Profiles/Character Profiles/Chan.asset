@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Chan
   m_EditorClassIdentifier: 
   Portrait: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
-  Element: 0
+  ScriptableElement: {fileID: 11400000, guid: 3b038aab97acbdd4083911f7da053c1c, type: 2}
   Name: Kohaku Otori
   Description: 'This character is a DPS. She uses fire elements with her sword and
     weapon.

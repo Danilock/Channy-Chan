@@ -4,11 +4,11 @@ using UnityEngine;
 using System.Linq;
 using UnityEngine.Events;
 
-/// ----------------------------------|Class Info|--------------------------------
 /// <summary>
+/// ----------------------------------|Class Info|--------------------------------
 /// This class should be used to handle the characters in current player's party.
-/// </summary>
 /// ------------------------------------------------------------------------------
+/// </summary>
 namespace Game
 {
     public class CharacterHandler : MonoBehaviour

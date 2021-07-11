@@ -15,12 +15,12 @@ namespace Tests
         {
             Damageable damageable = new Damageable();
 
-            damageable.CurrentHealth = 100f;
-            damageable.Element = ElementGenerator.GenerateFireElement;
+            damageable.CurrentHealth = 100;
+            damageable.Element = ElementGenerator.GetFireElement;
 
-            damageable.TakeDamage(10f, ElementGenerator.GenerateWaterElement);
+            damageable.TakeDamage(10, ElementGenerator.GetWaterElement);
 
-            Assert.AreEqual(85f, damageable.CurrentHealth);
+            Assert.AreEqual(85, damageable.CurrentHealth);
         }
     }
 }

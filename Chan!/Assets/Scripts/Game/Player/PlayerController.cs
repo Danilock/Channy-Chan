@@ -33,7 +33,6 @@ namespace Game
         public Animator Animator { get; set; }
         private CharacterHandler _characterHandler;
         private SpriteRenderer _spriteRenderer;
-        private CharacterInstance _characterInstance;
         private DamageableComponent _damageable;
         #endregion
         private void Awake()
@@ -53,7 +52,6 @@ namespace Game
             _ch2D = GetComponent<CharacterController2D>();
             _characterHandler = GetComponent<CharacterHandler>();
             _spriteRenderer = GetComponent<SpriteRenderer>();
-            _characterInstance = GetComponent<CharacterInstance>();
             _damageable = GetComponent<DamageableComponent>();
             #endregion
 
@@ -77,7 +75,8 @@ namespace Game
         public void UpdatePlayerPropertiesOnSwitchCharacter(CharacterInstance character)
         {
             _spriteRenderer.sprite = character.Portrait;
-            gameObject.name = character.Name;
+
+            Debug.Log(character.Element.Name);
         }
     }
 }

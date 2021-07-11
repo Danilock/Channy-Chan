@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c78d97c5e4c5042a017edfc148d8bb, type: 3}
   m_Name: Water
   m_EditorClassIdentifier: 
-  Name: Water
-  WeakerAgainst: 02000000
-  StrongAgainst: 00000000
+  Element:
+    Name: Waterflow
+    Type: 1
+    WeakerAgainst: 02000000
+    StrongAgainst: 00000000

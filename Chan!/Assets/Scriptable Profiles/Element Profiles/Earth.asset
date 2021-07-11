@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c78d97c5e4c5042a017edfc148d8bb, type: 3}
   m_Name: Earth
   m_EditorClassIdentifier: 
-  Name: Earth
-  WeakerAgainst: 00000000
-  StrongAgainst: 01000000
+  Element:
+    Name: Frea
+    Type: 2
+    WeakerAgainst: 00000000
+    StrongAgainst: 01000000

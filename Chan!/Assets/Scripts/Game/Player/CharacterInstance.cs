@@ -19,7 +19,7 @@ namespace Game
         public string Description { get; set; }
         public int Damage { get; set; }
         public int BaseHealth { get; set; }
-        public Element Element;
+        public Element Element = new Element();
         public Sprite Portrait { get; set; }
 
         public Damageable Damageable;
@@ -39,19 +39,19 @@ namespace Game
                 Profile.Description,
                 Profile.BaseDamage,
                 Profile.BaseHealth,
-                Profile.Element,
                 Profile.Portrait
             );
+
+            this.Element = profile.ScriptableElement.Element;
         }
         #endregion
     
-        public void SetupCharacter(string name, string description, int damage, int health, Element element, Sprite portrait)
+        public void SetupCharacter(string name, string description, int damage, int health, Sprite portrait)
         {
             this.Name = name;
             this.Description = description;
             this.Damage = damage;
             this.BaseHealth = health;
-            this.Element.Type = element.Type;
             this.Portrait = portrait;
         }
     }

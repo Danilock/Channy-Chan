@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
+using Game;
 
 namespace Tests
 {
@@ -16,7 +17,7 @@ namespace Tests
         /// <summary>
         /// Generates the Fire element and returns it.
         /// </summary>
-        public static Element GenerateFireElement
+        public static Element GetFireElement
         {
             get
             {
@@ -36,7 +37,7 @@ namespace Tests
         /// <summary>
         /// Generates the water element and returns it.
         /// </summary>
-        public static Element GenerateWaterElement
+        public static Element GetWaterElement
         {
             get
             {
@@ -56,7 +57,7 @@ namespace Tests
         /// <summary>
         /// Generates the Earth element and returns it.
         /// </summary>
-        public static Element GenerateEarthElement
+        public static Element GetEarthElement
         {
             get
             {

@@ -17,7 +17,7 @@ namespace Tests
                 "Logan",
                 10,
                 100,
-                ElementGenerator.GenerateFireElement,
+                ElementGenerator.GetFireElement,
                 "Test Description"
                 );
 

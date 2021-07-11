@@ -523,8 +523,18 @@ MonoBehaviour:
       OnUpgradeLevel:
         m_PersistentCalls:
           m_Calls: []
+    Element:
+      Name: 
+      Type: 0
+      WeakerAgainst: 
+      StrongAgainst: 
     Damageable:
       CurrentHealth: 0
+      Element:
+        Name: 
+        Type: 0
+        WeakerAgainst: 
+        StrongAgainst: 
       IsDead: 0
       IsInvulnerable: 0
   - Profile: {fileID: 11400000, guid: 64c8a5bf3ac9f39449327fae288d594d, type: 2}
@@ -536,8 +546,18 @@ MonoBehaviour:
       OnUpgradeLevel:
         m_PersistentCalls:
           m_Calls: []
+    Element:
+      Name: 
+      Type: 0
+      WeakerAgainst: 
+      StrongAgainst: 
     Damageable:
       CurrentHealth: 0
+      Element:
+        Name: 
+        Type: 0
+        WeakerAgainst: 
+        StrongAgainst: 
       IsDead: 0
       IsInvulnerable: 0
   OnChangeCharacter:

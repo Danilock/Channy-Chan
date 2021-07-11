@@ -8,8 +8,8 @@ namespace Game
     [System.Serializable]
     public class Damageable
     {
-        public float CurrentHealth;
-        public UnityAction<float> OnTakeDamage;
+        public int CurrentHealth;
+        public UnityAction<int> OnTakeDamage;
         public Element Element;
         public bool IsDead, IsInvulnerable;
 
@@ -18,7 +18,7 @@ namespace Game
         /// </summary>
         /// <param name="amount">Amount of damage</param>
         /// <param name="damageDealerElement">Element of the damage dealer.</param>
-        public void TakeDamage(float amount, Element damageDealerElement)
+        public void TakeDamage(int amount, Element damageDealerElement)
         {
             if (IsDead || IsInvulnerable)
                 return;
@@ -26,14 +26,16 @@ namespace Game
             CurrentHealth -= CalculateDamageBasedOnElements(amount, damageDealerElement, Element);
         }
 
-        public float CalculateDamageBasedOnElements(float damage, Element damageDealer, Element damageReceiver)
+        public int CalculateDamageBasedOnElements(int damage, Element damageDealer, Element damageReceiver)
         {
-            if (damageDealer.StrongAgainst.Contains(damageReceiver.Type))
-                damage *= 1.5f;
-            else if(damageDealer.WeakerAgainst.Contains(damageReceiver.Type))
-                damage *= .5f;
+            float damageFloat = damage;
 
-            return damage;
+            if (damageDealer.StrongAgainst.Contains(damageReceiver.Type))
+                damageFloat *= 1.5f;
+            else if(damageDealer.WeakerAgainst.Contains(damageReceiver.Type))
+                damageFloat *= .5f;
+
+            return (int) damageFloat;
         }
     }
 }

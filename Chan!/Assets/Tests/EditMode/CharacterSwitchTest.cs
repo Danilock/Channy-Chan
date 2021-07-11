@@ -16,7 +16,7 @@ namespace Tests
                 "Logan",
                 10,
                 100,
-                ElementGenerator.GenerateFireElement,
+                ElementGenerator.GetFireElement,
                 "Test Description"
                 );
 
@@ -24,7 +24,7 @@ namespace Tests
                 "Ryan",
                 20,
                 200,
-                ElementGenerator.GenerateWaterElement,
+                ElementGenerator.GetWaterElement,
                 "Test Description"
                 );
 
@@ -54,7 +54,7 @@ public class ScriptableCharacterCreator{
         character.Portrait = null;
         character.BaseDamage = baseDamage;
         character.BaseHealth = baseHealth;
-        character.Element = element;
+        character.ScriptableElement.Element = element;
         character.Description = description;
 
         return character;
