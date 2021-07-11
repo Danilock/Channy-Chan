@@ -12,6 +12,10 @@ namespace Game
     public class InputHandler : Singleton<InputHandler>
     {
         private ChanActions _chanActions;
+        public static ChanActions GetChanActions
+        {
+            get => Instance._chanActions;
+        }
         ///<Summary>
         /// Gets the vector2 axis of the WASD keys input.
         ///</Summary>

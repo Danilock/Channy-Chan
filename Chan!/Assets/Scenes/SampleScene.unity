@@ -523,7 +523,10 @@ MonoBehaviour:
       OnUpgradeLevel:
         m_PersistentCalls:
           m_Calls: []
-    Element: 0
+    Damageable:
+      CurrentHealth: 0
+      IsDead: 0
+      IsInvulnerable: 0
   - Profile: {fileID: 11400000, guid: 64c8a5bf3ac9f39449327fae288d594d, type: 2}
     CharacterEXP:
       CurrentLevel: 1
@@ -533,7 +536,10 @@ MonoBehaviour:
       OnUpgradeLevel:
         m_PersistentCalls:
           m_Calls: []
-    Element: 0
+    Damageable:
+      CurrentHealth: 0
+      IsDead: 0
+      IsInvulnerable: 0
   OnChangeCharacter:
     m_PersistentCalls:
       m_Calls: []

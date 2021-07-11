@@ -5,12 +5,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Element", menuName = "Create Element")]
 public class ScriptableElement : ScriptableObject
 {
-    public string Name;
-    public Element[] WeakerAgainst;
-    public Element[] StrongAgainst;
+    public Element Element;
 }
 
-public enum Element
+public enum ElementTypes
 {
     Fire,
     Water,

@@ -4,11 +4,11 @@ using UnityEngine;
 using System.Linq;
 using UnityEngine.Events;
 
-/// <summary>
 /// ----------------------------------|Class Info|--------------------------------
+/// <summary>
 /// This class should be used to handle the characters in current player's party.
-/// ------------------------------------------------------------------------------
 /// </summary>
+/// ------------------------------------------------------------------------------
 namespace Game
 {
     public class CharacterHandler : MonoBehaviour
@@ -55,13 +55,15 @@ namespace Game
 
             CurrentCharacter = _characters[index];
 
-            Debug.Log(CurrentCharacter.Name);
-
             OnChangeCharacter?.Invoke(CurrentCharacter);
 
             StartCoroutine(HandleSwitchCooldown());
         }
 
+        /// <summary>
+        /// Adds a character to the characters list.
+        /// </summary>
+        /// <param name="newCharacter"></param>
         public void AddCharacter(CharacterInstance newCharacter)
         {
             _characters.Add(newCharacter);

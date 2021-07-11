@@ -16,7 +16,7 @@ namespace Tests
                 "Logan",
                 10,
                 100,
-                Element.Fire,
+                ElementGenerator.GenerateFireElement,
                 "Test Description"
                 );
 
@@ -24,7 +24,7 @@ namespace Tests
                 "Ryan",
                 20,
                 200,
-                Element.Water,
+                ElementGenerator.GenerateWaterElement,
                 "Test Description"
                 );
 
@@ -39,7 +39,7 @@ namespace Tests
 
             chHandler.ChangeCharacter(1);
 
-            Assert.AreEqual(Element.Water, chHandler.CurrentCharacter.Element);
+            Assert.AreEqual(ElementTypes.Water, chHandler.CurrentCharacter.Element);
         }
     }
 }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3baea5e9fc8e5f448f873bfa5249332, type: 3}
   m_Name: Daniel
   m_EditorClassIdentifier: 
-  Portrait: {fileID: 0}
+  Portrait: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   Element: 1
   Name: Daniel
   Description: Daniel is a weeb

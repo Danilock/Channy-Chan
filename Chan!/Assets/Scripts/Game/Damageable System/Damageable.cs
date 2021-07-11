@@ -1,11 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Game
 {
-    public class Damageable : MonoBehaviour
+    [System.Serializable]
+    public class Damageable
     {
-        public int Health;
+        public float CurrentHealth;
+        public UnityAction<float> OnTakeDamage;
+        public Element Element;
+        public bool IsDead, IsInvulnerable;
+
+        /// <summary>
+        /// Makes damage to this damageable entity.
+        /// </summary>
+        /// <param name="amount">Amount of damage</param>
+        /// <param name="damageDealerElement">Element of the damage dealer.</param>
+        public void TakeDamage(float amount, Element damageDealerElement)
+        {
+            if (IsDead || IsInvulnerable)
+                return;
+
+            CurrentHealth -= CalculateDamageBasedOnElements(amount, damageDealerElement, Element);
+        }
+
+        public float CalculateDamageBasedOnElements(float damage, Element damageDealer, Element damageReceiver)
+        {
+            if (damageDealer.StrongAgainst.Contains(damageReceiver.Type))
+                damage *= 1.5f;
+            else if(damageDealer.WeakerAgainst.Contains(damageReceiver.Type))
+                damage *= .5f;
+
+            return damage;
+        }
     }
 }

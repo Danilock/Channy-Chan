@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using Game.StateMachine;
 
-///<Summary>
 /// -------------------------|Class Description|-----------------------------
+///<Summary>
 /// Class that will be like an orchestor between all the player systems like 
 /// input, character handler, state machine etc.
-/// -------------------------------------------------------------------------
 /// Note: This class should only exist once per scene.  
 ///</Summary>
+/// -------------------------------------------------------------------------
 ///
 namespace Game
 {
@@ -33,6 +33,8 @@ namespace Game
         public Animator Animator { get; set; }
         private CharacterHandler _characterHandler;
         private SpriteRenderer _spriteRenderer;
+        private CharacterInstance _characterInstance;
+        private DamageableComponent _damageable;
         #endregion
         private void Awake()
         {
@@ -46,11 +48,16 @@ namespace Game
             #endregion
 
             PlayerMachine = new StateMachine<PlayerController>(this);
+
+            #region Get Components
             _ch2D = GetComponent<CharacterController2D>();
             _characterHandler = GetComponent<CharacterHandler>();
             _spriteRenderer = GetComponent<SpriteRenderer>();
+            _characterInstance = GetComponent<CharacterInstance>();
+            _damageable = GetComponent<DamageableComponent>();
+            #endregion
 
-            _characterHandler.OnChangeCharacter.AddListener(OnSwitchCharacter);
+            _characterHandler.OnChangeCharacter.AddListener(UpdatePlayerPropertiesOnSwitchCharacter);
         }
 
         private void Start()
@@ -63,7 +70,11 @@ namespace Game
             PlayerMachine.CurrentState.TickState(this);
         }
 
-        public void OnSwitchCharacter(CharacterInstance character)
+        /// <summary>
+        /// Change all the player properties to the character passed as a parameter.
+        /// </summary>
+        /// <param name="character"></param>
+        public void UpdatePlayerPropertiesOnSwitchCharacter(CharacterInstance character)
         {
             _spriteRenderer.sprite = character.Portrait;
             gameObject.name = character.Name;
