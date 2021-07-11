@@ -39,19 +39,19 @@ namespace Game
                 Profile.Description,
                 Profile.BaseDamage,
                 Profile.BaseHealth,
+                Profile.ScriptableElement.Element,
                 Profile.Portrait
             );
-
-            this.Element = profile.ScriptableElement.Element;
         }
         #endregion
     
-        public void SetupCharacter(string name, string description, int damage, int health, Sprite portrait)
+        public void SetupCharacter(string name, string description, int damage, int health, Element element, Sprite portrait)
         {
             this.Name = name;
             this.Description = description;
             this.Damage = damage;
             this.BaseHealth = health;
+            this.Element = element;
             this.Portrait = portrait;
         }
     }
