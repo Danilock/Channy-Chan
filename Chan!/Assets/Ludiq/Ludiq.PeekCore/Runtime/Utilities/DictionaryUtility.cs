@@ -35,8 +35,7 @@ namespace Ludiq.PeekCore
 			dictionary.TryGetValue(key, out var value);
 			return value;
 		}
-
-		// TODO: Report, there seems to be a Unity bug that fails to find IROD in .NET 2.0 standard but only on the first compile 
+ 
 		/*
 		public static TValue GetValueOrDefault<TKey, TValue>(this IReadOnlyDictionary<TKey, TValue> dictionary, TKey key)
 		{

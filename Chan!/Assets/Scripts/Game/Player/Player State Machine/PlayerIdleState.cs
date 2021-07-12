@@ -24,7 +24,6 @@ namespace Game
 
         public override void TickState(PlayerController entity)
         {
-            entity.CharacterController.Move(InputHandler.MoveVector.x, InputHandler.JumpTriggered);
         }
     }
 }

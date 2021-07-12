@@ -25,8 +25,6 @@
 			item = default;
 			return false;
 		}
-
-		// TODO: Make sure duck typing works even on base class
 		public new NoAllocEnumerator<TItem> GetEnumerator()
 		{
 			return new NoAllocEnumerator<TItem>(this);

@@ -9,8 +9,12 @@ namespace Game
     public class Damageable
     {
         public int CurrentHealth;
-        public UnityAction<int> OnTakeDamage;
-        public Element Element;
+        /// <summary>
+        /// Called everytime this entity takes damage and returns the current health.
+        /// </summary>
+        public UnityAction<int, int> OnTakeDamage;
+        public UnityAction OnDead;
+        public ScriptableElement ScriptableElement;
         public bool IsDead, IsInvulnerable;
 
         /// <summary>
@@ -23,7 +27,17 @@ namespace Game
             if (IsDead || IsInvulnerable)
                 return;
 
-            CurrentHealth -= CalculateDamageBasedOnElements(amount, damageDealerElement, Element);
+            int damageTaked = CalculateDamageBasedOnElements(amount, damageDealerElement, ScriptableElement.Element);
+
+            CurrentHealth -= damageTaked;
+
+            if (CurrentHealth <= 0)
+            {
+                IsDead = true;
+                OnDead.Invoke();
+            }
+            else
+                OnTakeDamage.Invoke(CurrentHealth, damageTaked);
         }
 
         public int CalculateDamageBasedOnElements(int damage, Element damageDealer, Element damageReceiver)

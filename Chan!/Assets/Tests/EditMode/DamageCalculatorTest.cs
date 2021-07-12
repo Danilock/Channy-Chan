@@ -16,7 +16,8 @@ namespace Tests
             Damageable damageable = new Damageable();
 
             damageable.CurrentHealth = 100;
-            damageable.Element = ElementGenerator.GetFireElement;
+            damageable.ScriptableElement = (ScriptableElement) ScriptableObject.CreateInstance("ScriptableElement");
+            damageable.ScriptableElement.Element = ElementGenerator.GetFireElement;
 
             damageable.TakeDamage(10, ElementGenerator.GetWaterElement);
 

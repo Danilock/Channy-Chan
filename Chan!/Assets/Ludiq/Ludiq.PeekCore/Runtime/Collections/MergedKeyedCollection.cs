@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 
-// TODO: Unique key integrity check across collections
 
 namespace Ludiq.PeekCore
 {

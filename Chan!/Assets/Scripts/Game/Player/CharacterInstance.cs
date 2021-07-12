@@ -22,7 +22,7 @@ namespace Game
         public Element Element = new Element();
         public Sprite Portrait { get; set; }
 
-        public Damageable Damageable;
+        public Damageable Damageable = new Damageable();
         #endregion
 
 
@@ -42,6 +42,9 @@ namespace Game
                 Profile.ScriptableElement.Element,
                 Profile.Portrait
             );
+
+            Damageable.CurrentHealth = BaseHealth;
+            Damageable.ScriptableElement = profile.ScriptableElement;
         }
         #endregion
     

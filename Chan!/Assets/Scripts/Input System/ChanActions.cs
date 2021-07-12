@@ -67,10 +67,10 @@ public class @ChanActions : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Pick Character 4"",
-                    ""type"": ""Value"",
+                    ""name"": ""Use Ability"",
+                    ""type"": ""Button"",
                     ""id"": ""6e2db45f-7cbc-4885-ae1d-a306d2ef67ca"",
-                    ""expectedControlType"": ""Integer"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
                 }
@@ -110,31 +110,9 @@ public class @ChanActions : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""up"",
-                    ""id"": ""8180e8bd-4097-4f4e-ab88-4523101a6ce9"",
-                    ""path"": ""<Keyboard>/upArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
                     ""name"": ""down"",
                     ""id"": ""320bffee-a40b-4347-ac70-c210eb8bc73a"",
                     ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""1c5327b5-f71c-4f60-99c7-4e737386f1d1"",
-                    ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
@@ -154,31 +132,9 @@ public class @ChanActions : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""left"",
-                    ""id"": ""2e46982e-44cc-431b-9f0b-c11910bf467a"",
-                    ""path"": ""<Keyboard>/leftArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
                     ""name"": ""right"",
                     ""id"": ""fcfe95b8-67b9-4526-84b5-5d0bc98d6400"",
                     ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""77bff152-3580-4b21-b6de-dcd0c7e41164"",
-                    ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
@@ -304,6 +260,17 @@ public class @ChanActions : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Pick Character 2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0cd04af6-2419-4747-a854-2ebe008ff398"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Use Ability"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -887,7 +854,7 @@ public class @ChanActions : IInputActionCollection, IDisposable
         m_Player_PickCharacter1 = m_Player.FindAction("Pick Character 1", throwIfNotFound: true);
         m_Player_PickCharacter2 = m_Player.FindAction("Pick Character 2", throwIfNotFound: true);
         m_Player_PickCharacter3 = m_Player.FindAction("Pick Character 3", throwIfNotFound: true);
-        m_Player_PickCharacter4 = m_Player.FindAction("Pick Character 4", throwIfNotFound: true);
+        m_Player_UseAbility = m_Player.FindAction("Use Ability", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -955,7 +922,7 @@ public class @ChanActions : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_PickCharacter1;
     private readonly InputAction m_Player_PickCharacter2;
     private readonly InputAction m_Player_PickCharacter3;
-    private readonly InputAction m_Player_PickCharacter4;
+    private readonly InputAction m_Player_UseAbility;
     public struct PlayerActions
     {
         private @ChanActions m_Wrapper;
@@ -966,7 +933,7 @@ public class @ChanActions : IInputActionCollection, IDisposable
         public InputAction @PickCharacter1 => m_Wrapper.m_Player_PickCharacter1;
         public InputAction @PickCharacter2 => m_Wrapper.m_Player_PickCharacter2;
         public InputAction @PickCharacter3 => m_Wrapper.m_Player_PickCharacter3;
-        public InputAction @PickCharacter4 => m_Wrapper.m_Player_PickCharacter4;
+        public InputAction @UseAbility => m_Wrapper.m_Player_UseAbility;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -994,9 +961,9 @@ public class @ChanActions : IInputActionCollection, IDisposable
                 @PickCharacter3.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickCharacter3;
                 @PickCharacter3.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickCharacter3;
                 @PickCharacter3.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickCharacter3;
-                @PickCharacter4.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickCharacter4;
-                @PickCharacter4.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickCharacter4;
-                @PickCharacter4.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickCharacter4;
+                @UseAbility.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUseAbility;
+                @UseAbility.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUseAbility;
+                @UseAbility.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUseAbility;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1019,9 +986,9 @@ public class @ChanActions : IInputActionCollection, IDisposable
                 @PickCharacter3.started += instance.OnPickCharacter3;
                 @PickCharacter3.performed += instance.OnPickCharacter3;
                 @PickCharacter3.canceled += instance.OnPickCharacter3;
-                @PickCharacter4.started += instance.OnPickCharacter4;
-                @PickCharacter4.performed += instance.OnPickCharacter4;
-                @PickCharacter4.canceled += instance.OnPickCharacter4;
+                @UseAbility.started += instance.OnUseAbility;
+                @UseAbility.performed += instance.OnUseAbility;
+                @UseAbility.canceled += instance.OnUseAbility;
             }
         }
     }
@@ -1184,7 +1151,7 @@ public class @ChanActions : IInputActionCollection, IDisposable
         void OnPickCharacter1(InputAction.CallbackContext context);
         void OnPickCharacter2(InputAction.CallbackContext context);
         void OnPickCharacter3(InputAction.CallbackContext context);
-        void OnPickCharacter4(InputAction.CallbackContext context);
+        void OnUseAbility(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

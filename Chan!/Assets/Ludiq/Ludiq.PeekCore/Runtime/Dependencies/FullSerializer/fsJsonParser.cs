@@ -5,7 +5,6 @@ using System.Text;
 
 namespace Ludiq.PeekCore.FullSerializer
 {
-	// TODO: properly propagate warnings/etc for fsResult states
 
 	/// <summary>
 	/// A simple recursive descent parser for JSON.

@@ -16,5 +16,5 @@ MonoBehaviour:
   ScriptableElement: {fileID: 11400000, guid: 006bef5742b8ea04daa5bedfdbbb43ac, type: 2}
   Name: Daniel
   Description: Daniel is a weeb
-  BaseHealth: 200
+  BaseHealth: 100
   BaseDamage: 15

@@ -258,7 +258,6 @@ namespace Ludiq.PeekCore.FullSerializer
 													"multiple fsConverters -- please construct a new instance for " + converter);
 			}
 
-			// TODO: wrap inside of a ConverterManager so we can control
 			//       _converters and _cachedConverters lifetime
 			if (converter is fsDirectConverter)
 			{

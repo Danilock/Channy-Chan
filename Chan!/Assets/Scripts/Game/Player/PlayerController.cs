@@ -60,11 +60,13 @@ namespace Game
 
         private void Start()
         {
+            //Set the idleState as initial state.
             PlayerMachine.SetState(IdleState);
         }
 
         private void Update()
         {
+            //Current state is running on it's tick state.
             PlayerMachine.CurrentState.TickState(this);
         }
 
@@ -76,7 +78,7 @@ namespace Game
         {
             _spriteRenderer.sprite = character.Portrait;
 
-            Debug.Log(character.Element.Name);
+            _damageable.DamageableProfile = character.Damageable;
         }
     }
 }

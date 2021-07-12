@@ -31,10 +31,11 @@ namespace Game
         [SerializeField] private float _switchCooldown;
         [SerializeField] private bool _canSwitch = true;
 
+        [SerializeField] private DamageableComponent _dmg;
+
         private void Start()
         {
-            InitializeCharacterList();
-        }
+            InitializeCharacterList();        }
 
         private void Update()
         {
@@ -52,6 +53,12 @@ namespace Game
         {
             if (!_canSwitch)
                 return;
+
+            if(_characters[index] == CurrentCharacter)
+            {
+                //TODO: Make error sound
+                return;
+            }
 
             CurrentCharacter = _characters[index];
 
@@ -77,7 +84,10 @@ namespace Game
             for (int i = 0; i < _characters.Count; i++)
             {
                 _characters[i] = new CharacterInstance(_characters[i].Profile);
+                _characters[i].Damageable.OnTakeDamage += UpdateCharacterHealth;
             }
+
+            ChangeCharacter(0);
         }
 
         /// <summary>
@@ -89,6 +99,11 @@ namespace Game
             _canSwitch = false;
             yield return new WaitForSeconds(_switchCooldown);
             _canSwitch = true;
+        }
+
+        private void UpdateCharacterHealth(int currentHealth, int damageReceived)
+        {
+            CurrentCharacter.BaseHealth = currentHealth;
         }
     }
 }

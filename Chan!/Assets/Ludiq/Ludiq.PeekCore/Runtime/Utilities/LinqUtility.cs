@@ -226,7 +226,6 @@ namespace Ludiq.PeekCore
 
 		public static IEnumerable<T> OrderByDependers<T>(this IEnumerable<T> source, Func<T, IEnumerable<T>> getDependers, bool throwOnCycle = true)
 		{
-			// TODO: Optimize, or use another algorithm (Kahn's?)
 
 			// Convert dependers to dependencies
 			var dependencies = new Dictionary<T, HashSet<T>>();

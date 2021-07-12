@@ -327,6 +327,8 @@ GameObject:
   - component: {fileID: 2075507022}
   - component: {fileID: 2075507023}
   - component: {fileID: 2075507016}
+  - component: {fileID: 2075507024}
+  - component: {fileID: 2075507025}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -530,11 +532,7 @@ MonoBehaviour:
       StrongAgainst: 
     Damageable:
       CurrentHealth: 0
-      Element:
-        Name: 
-        Type: 0
-        WeakerAgainst: 
-        StrongAgainst: 
+      ScriptableElement: {fileID: 0}
       IsDead: 0
       IsInvulnerable: 0
   - Profile: {fileID: 11400000, guid: 64c8a5bf3ac9f39449327fae288d594d, type: 2}
@@ -553,11 +551,7 @@ MonoBehaviour:
       StrongAgainst: 
     Damageable:
       CurrentHealth: 0
-      Element:
-        Name: 
-        Type: 0
-        WeakerAgainst: 
-        StrongAgainst: 
+      ScriptableElement: {fileID: 11400000, guid: 006bef5742b8ea04daa5bedfdbbb43ac, type: 2}
       IsDead: 0
       IsInvulnerable: 0
   OnChangeCharacter:
@@ -565,6 +559,7 @@ MonoBehaviour:
       m_Calls: []
   _switchCooldown: 1
   _canSwitch: 1
+  _dmg: {fileID: 2075507025}
 --- !u!114 &2075507023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -587,6 +582,36 @@ MonoBehaviour:
   _size: 0.22
   Rgb2D: {fileID: 0}
   Jumping: 0
+--- !u!114 &2075507024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2075507014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0713e34930fd23f4d8443a3bd9960b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CanMove: 1
+--- !u!114 &2075507025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2075507014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5aac0e588a1334459229a91a33f4380, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageable:
+    CurrentHealth: 0
+    ScriptableElement: {fileID: 0}
+    IsDead: 0
+    IsInvulnerable: 0
 --- !u!1 &2093467041
 GameObject:
   m_ObjectHideFlags: 0
