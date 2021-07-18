@@ -21,7 +21,7 @@ namespace Tests
                 "Test Description"
                 );
 
-            CharacterInstance instance = new CharacterInstance(loganProfile);
+            Character instance = new Character();
 
             instance.CharacterEXP.GainExp(250f);
 

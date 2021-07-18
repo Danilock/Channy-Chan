@@ -54,8 +54,6 @@ namespace Game
             _spriteRenderer = GetComponent<SpriteRenderer>();
             _damageable = GetComponent<DamageableComponent>();
             #endregion
-
-            _characterHandler.OnChangeCharacter.AddListener(UpdatePlayerPropertiesOnSwitchCharacter);
         }
 
         private void Start()
@@ -68,17 +66,6 @@ namespace Game
         {
             //Current state is running on it's tick state.
             PlayerMachine.CurrentState.TickState(this);
-        }
-
-        /// <summary>
-        /// Change all the player properties to the character passed as a parameter.
-        /// </summary>
-        /// <param name="character"></param>
-        public void UpdatePlayerPropertiesOnSwitchCharacter(CharacterInstance character)
-        {
-            _spriteRenderer.sprite = character.Portrait;
-
-            _damageable.DamageableProfile = character.Damageable;
         }
     }
 }

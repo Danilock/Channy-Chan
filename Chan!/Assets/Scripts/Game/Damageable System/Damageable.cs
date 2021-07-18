@@ -37,9 +37,16 @@ namespace Game
                 OnDead.Invoke();
             }
             else
-                OnTakeDamage.Invoke(CurrentHealth, damageTaked);
+                OnTakeDamage?.Invoke(CurrentHealth, damageTaked);
         }
 
+        /// <summary>
+        /// Adds extra damage to the incoming damage based on the elements.
+        /// </summary>
+        /// <param name="damage"></param>
+        /// <param name="damageDealer"></param>
+        /// <param name="damageReceiver"></param>
+        /// <returns></returns>
         public int CalculateDamageBasedOnElements(int damage, Element damageDealer, Element damageReceiver)
         {
             float damageFloat = damage;

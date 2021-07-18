@@ -14,9 +14,9 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Fire",
+                    "name": "Use Ability",
                     "type": "Button",
-                    "id": "745e0acc-d88d-436a-a078-b046bdd9091f",
+                    "id": "6e2db45f-7cbc-4885-ae1d-a306d2ef67ca",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -47,16 +47,8 @@
                 },
                 {
                     "name": "Pick Character 3",
-                    "type": "Value",
-                    "id": "7f5a20e5-7fbb-4570-aeca-8b00cc4a4e9c",
-                    "expectedControlType": "Integer",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "Use Ability",
                     "type": "Button",
-                    "id": "6e2db45f-7cbc-4885-ae1d-a306d2ef67ca",
+                    "id": "7f5a20e5-7fbb-4570-aeca-8b00cc4a4e9c",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -153,61 +145,6 @@
                 },
                 {
                     "name": "",
-                    "id": "143bb1cd-cc10-4eca-a2f0-a3664166fe91",
-                    "path": "<Gamepad>/rightTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Gamepad",
-                    "action": "Fire",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "05f6913d-c316-48b2-a6bb-e225f14c7960",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "Fire",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "886e731e-7071-4ae4-95c0-e61739dad6fd",
-                    "path": "<Touchscreen>/primaryTouch/tap",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Touch",
-                    "action": "Fire",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "ee3d0cd2-254e-47a7-a8cb-bc94d9658c54",
-                    "path": "<Joystick>/trigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Joystick",
-                    "action": "Fire",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "8255d333-5683-4943-a58a-ccb207ff1dce",
-                    "path": "<XRController>/{PrimaryAction}",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "XR",
-                    "action": "Fire",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "b701fb37-3e1a-4f84-ab30-1166736fb216",
                     "path": "<Keyboard>/space",
                     "interactions": "",
@@ -258,6 +195,17 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Use Ability",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5ccb95c0-fdfb-488c-84bf-e1e9e7563627",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pick Character 3",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

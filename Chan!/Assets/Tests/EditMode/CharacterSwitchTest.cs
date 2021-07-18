@@ -28,8 +28,8 @@ namespace Tests
                 "Test Description"
                 );
 
-            CharacterInstance loganInstance = new CharacterInstance(loganProfile);
-            CharacterInstance ryanInstance = new CharacterInstance(ryanProfile);
+            Character loganInstance = new Character();
+            Character ryanInstance = new Character();
 
             GameObject obj = new GameObject("MyObj");
             CharacterHandler chHandler = obj.AddComponent<CharacterHandler>();

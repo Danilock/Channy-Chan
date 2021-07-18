@@ -16,11 +16,5 @@ namespace Game
             get => _damageable;
             set => _damageable = value;
         }
-
-        [ContextMenu("Do Damage")]
-        private void TakeDamage()
-        {
-            _damageable.TakeDamage(10, ElementGenerator.GetEarthElement);
-        }
     }
 }

@@ -38,7 +38,7 @@ namespace Game
 
         private void UpgradeLevelBasedOnCurrentEXP()
         {
-            if(CurrentEXP > RequiredEXP)
+            if(CurrentEXP >= RequiredEXP)
             {
                 RequiredEXP *= 2f;
 

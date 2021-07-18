@@ -27,9 +27,9 @@ public class @ChanActions : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Fire"",
+                    ""name"": ""Use Ability"",
                     ""type"": ""Button"",
-                    ""id"": ""745e0acc-d88d-436a-a078-b046bdd9091f"",
+                    ""id"": ""6e2db45f-7cbc-4885-ae1d-a306d2ef67ca"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -60,16 +60,8 @@ public class @ChanActions : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""Pick Character 3"",
-                    ""type"": ""Value"",
-                    ""id"": ""7f5a20e5-7fbb-4570-aeca-8b00cc4a4e9c"",
-                    ""expectedControlType"": ""Integer"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""Use Ability"",
                     ""type"": ""Button"",
-                    ""id"": ""6e2db45f-7cbc-4885-ae1d-a306d2ef67ca"",
+                    ""id"": ""7f5a20e5-7fbb-4570-aeca-8b00cc4a4e9c"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -166,61 +158,6 @@ public class @ChanActions : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""143bb1cd-cc10-4eca-a2f0-a3664166fe91"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Gamepad"",
-                    ""action"": ""Fire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""05f6913d-c316-48b2-a6bb-e225f14c7960"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Fire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""886e731e-7071-4ae4-95c0-e61739dad6fd"",
-                    ""path"": ""<Touchscreen>/primaryTouch/tap"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Touch"",
-                    ""action"": ""Fire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""ee3d0cd2-254e-47a7-a8cb-bc94d9658c54"",
-                    ""path"": ""<Joystick>/trigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Joystick"",
-                    ""action"": ""Fire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""8255d333-5683-4943-a58a-ccb207ff1dce"",
-                    ""path"": ""<XRController>/{PrimaryAction}"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""XR"",
-                    ""action"": ""Fire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""b701fb37-3e1a-4f84-ab30-1166736fb216"",
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
@@ -271,6 +208,17 @@ public class @ChanActions : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Use Ability"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5ccb95c0-fdfb-488c-84bf-e1e9e7563627"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pick Character 3"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -849,12 +797,11 @@ public class @ChanActions : IInputActionCollection, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
-        m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
+        m_Player_UseAbility = m_Player.FindAction("Use Ability", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_PickCharacter1 = m_Player.FindAction("Pick Character 1", throwIfNotFound: true);
         m_Player_PickCharacter2 = m_Player.FindAction("Pick Character 2", throwIfNotFound: true);
         m_Player_PickCharacter3 = m_Player.FindAction("Pick Character 3", throwIfNotFound: true);
-        m_Player_UseAbility = m_Player.FindAction("Use Ability", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -917,23 +864,21 @@ public class @ChanActions : IInputActionCollection, IDisposable
     private readonly InputActionMap m_Player;
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Move;
-    private readonly InputAction m_Player_Fire;
+    private readonly InputAction m_Player_UseAbility;
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_PickCharacter1;
     private readonly InputAction m_Player_PickCharacter2;
     private readonly InputAction m_Player_PickCharacter3;
-    private readonly InputAction m_Player_UseAbility;
     public struct PlayerActions
     {
         private @ChanActions m_Wrapper;
         public PlayerActions(@ChanActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
-        public InputAction @Fire => m_Wrapper.m_Player_Fire;
+        public InputAction @UseAbility => m_Wrapper.m_Player_UseAbility;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @PickCharacter1 => m_Wrapper.m_Player_PickCharacter1;
         public InputAction @PickCharacter2 => m_Wrapper.m_Player_PickCharacter2;
         public InputAction @PickCharacter3 => m_Wrapper.m_Player_PickCharacter3;
-        public InputAction @UseAbility => m_Wrapper.m_Player_UseAbility;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -946,9 +891,9 @@ public class @ChanActions : IInputActionCollection, IDisposable
                 @Move.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
-                @Fire.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
-                @Fire.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
-                @Fire.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
+                @UseAbility.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUseAbility;
+                @UseAbility.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUseAbility;
+                @UseAbility.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUseAbility;
                 @Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
@@ -961,9 +906,6 @@ public class @ChanActions : IInputActionCollection, IDisposable
                 @PickCharacter3.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickCharacter3;
                 @PickCharacter3.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickCharacter3;
                 @PickCharacter3.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickCharacter3;
-                @UseAbility.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUseAbility;
-                @UseAbility.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUseAbility;
-                @UseAbility.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUseAbility;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -971,9 +913,9 @@ public class @ChanActions : IInputActionCollection, IDisposable
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
-                @Fire.started += instance.OnFire;
-                @Fire.performed += instance.OnFire;
-                @Fire.canceled += instance.OnFire;
+                @UseAbility.started += instance.OnUseAbility;
+                @UseAbility.performed += instance.OnUseAbility;
+                @UseAbility.canceled += instance.OnUseAbility;
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
@@ -986,9 +928,6 @@ public class @ChanActions : IInputActionCollection, IDisposable
                 @PickCharacter3.started += instance.OnPickCharacter3;
                 @PickCharacter3.performed += instance.OnPickCharacter3;
                 @PickCharacter3.canceled += instance.OnPickCharacter3;
-                @UseAbility.started += instance.OnUseAbility;
-                @UseAbility.performed += instance.OnUseAbility;
-                @UseAbility.canceled += instance.OnUseAbility;
             }
         }
     }
@@ -1146,12 +1085,11 @@ public class @ChanActions : IInputActionCollection, IDisposable
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
-        void OnFire(InputAction.CallbackContext context);
+        void OnUseAbility(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnPickCharacter1(InputAction.CallbackContext context);
         void OnPickCharacter2(InputAction.CallbackContext context);
         void OnPickCharacter3(InputAction.CallbackContext context);
-        void OnUseAbility(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

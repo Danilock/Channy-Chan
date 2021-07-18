@@ -13,29 +13,28 @@ namespace Game
 {
     public class CharacterHandler : MonoBehaviour
     {
-        [SerializeField] private List<CharacterInstance> _characters;
+        [SerializeField] private List<Character> _characters;
 
-        private CharacterInstance _currentCharacter;
+        private Character _currentCharacter;
         /// <summary>
         /// Gets the current character.
         /// </summary>
-        public CharacterInstance CurrentCharacter
+        public Character CurrentCharacter
         {
             get => _currentCharacter;
             private set => _currentCharacter = value;
         }
 
-        public UnityEvent<CharacterInstance> OnChangeCharacter;
+        public UnityEvent<Character> OnChangeCharacter;
 
         [Header("Switch Control")]
         [SerializeField] private float _switchCooldown;
         [SerializeField] private bool _canSwitch = true;
 
-        [SerializeField] private DamageableComponent _dmg;
-
         private void Start()
         {
-            InitializeCharacterList();        }
+            InitializeCharacterList();
+        }
 
         private void Update()
         {
@@ -54,13 +53,17 @@ namespace Game
             if (!_canSwitch)
                 return;
 
-            if(_characters[index] == CurrentCharacter)
+            if(CurrentCharacter == _characters[index])
             {
                 //TODO: Make error sound
                 return;
             }
 
+            CurrentCharacter?.gameObject.SetActive(false);
+
             CurrentCharacter = _characters[index];
+
+            CurrentCharacter.gameObject.SetActive(true);
 
             OnChangeCharacter?.Invoke(CurrentCharacter);
 
@@ -71,20 +74,16 @@ namespace Game
         /// Adds a character to the characters list.
         /// </summary>
         /// <param name="newCharacter"></param>
-        public void AddCharacter(CharacterInstance newCharacter)
+        public void AddCharacter(Character newCharacter)
         {
-            _characters.Add(newCharacter);
+            
         }
 
-        /// <summary>
-        /// Initialize the list to avoid null references.
-        /// </summary>
         private void InitializeCharacterList()
         {
-            for (int i = 0; i < _characters.Count; i++)
+            foreach(Character currentCharacter in _characters)
             {
-                _characters[i] = new CharacterInstance(_characters[i].Profile);
-                _characters[i].Damageable.OnTakeDamage += UpdateCharacterHealth;
+                currentCharacter.gameObject.SetActive(false);
             }
 
             ChangeCharacter(0);
@@ -103,7 +102,7 @@ namespace Game
 
         private void UpdateCharacterHealth(int currentHealth, int damageReceived)
         {
-            CurrentCharacter.BaseHealth = currentHealth;
+            CurrentCharacter.Health = currentHealth;
         }
     }
 }

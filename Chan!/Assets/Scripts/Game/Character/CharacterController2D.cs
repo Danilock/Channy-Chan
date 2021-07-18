@@ -4,6 +4,12 @@ using UnityEngine;
 
 namespace Game
 {
+    /// ==============|Class Info|==============
+    /// <summary>
+    /// Character 2D physics movement.
+    /// </summary>
+    /// ========================================
+    [RequireComponent(typeof(Rigidbody2D))]
     public class CharacterController2D : MonoBehaviour
     {
         #region  Physics
