@@ -7,7 +7,18 @@ namespace Game
     public class MeleeAttack : Attack
     {
         [SerializeField] protected float AreaSize = .3f;
-        
+
+        [SerializeField] private bool _isAttacking;
+
+        public void StartMeleeAttack() => _isAttacking = true;
+        public void EndMeleeAttack() => _isAttacking = false;
+
+        private void FixedUpdate()
+        {
+            if (_isAttacking)
+                DoAttack();
+        }
+
         public override void DoAttack()
         {
             //Creates a physics circle to detect all targets.
