@@ -206,6 +206,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &634539108 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 472634323873666064, guid: 327c0fcee931801409bb3b7ca581966d, type: 3}
+  m_PrefabInstance: {fileID: 472634322822494873}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &634539109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634539108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e15b2fa739c57b4d8272229fab615f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attacksAllowed: 3
 --- !u!114 &926475864 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2691316076379125360, guid: fc5f0bdf07c427542850ad1307a6f270, type: 3}
@@ -306,7 +324,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 472634323873666070, guid: 327c0fcee931801409bb3b7ca581966d, type: 3}
   m_PrefabInstance: {fileID: 472634322822494873}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 634539108}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fea7750fe6a0d654599028d54d6a85be, type: 3}
@@ -512,6 +530,7 @@ MonoBehaviour:
   PlayerAnimationsHandler: {fileID: 0}
   AttackController: {fileID: 0}
   Movement: {fileID: 0}
+  CharacterHandlerInstance: {fileID: 0}
 --- !u!114 &2075507020
 MonoBehaviour:
   m_ObjectHideFlags: 0

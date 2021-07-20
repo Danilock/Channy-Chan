@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2691316076379125365}
   - component: {fileID: 926475866}
   - component: {fileID: 996436869310868407}
+  - component: {fileID: 1998474686164271527}
   m_Layer: 0
   m_Name: Chan
   m_TagString: Untagged
@@ -143,11 +144,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackDamage: 10
+  Owner: {fileID: 2691316076379125360}
   AttackSpawnPoint: {fileID: 2691316076622153412}
   AttackLayers:
     serializedVersion: 2
     m_Bits: 128
   AreaSize: 1.2
+  _isAttacking: 0
 --- !u!95 &996436869310868407
 Animator:
   serializedVersion: 3
@@ -167,6 +170,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1998474686164271527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2691316076379125375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e15b2fa739c57b4d8272229fab615f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attacksAllowed: 4
 --- !u!1 &2691316076622153411
 GameObject:
   m_ObjectHideFlags: 0

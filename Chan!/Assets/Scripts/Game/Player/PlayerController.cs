@@ -48,6 +48,7 @@ namespace Game
 
         public PlayerAttackController AttackController;
         public PlayerMovement Movement;
+        public CharacterHandler CharacterHandlerInstance;
         #endregion
         private void Awake()
         {
@@ -66,6 +67,7 @@ namespace Game
             PlayerAnimationsHandler = GetComponent<PlayerAnimations>();
             AttackController = GetComponent<PlayerAttackController>();
             Movement = GetComponent<PlayerMovement>();
+            CharacterHandlerInstance = GetComponent<CharacterHandler>();
             _ch2D = GetComponent<CharacterController2D>();
             _characterHandler = GetComponent<CharacterHandler>();
             #endregion

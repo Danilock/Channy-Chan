@@ -29,6 +29,10 @@ namespace Game
         private void Start()
         {
             InputHandler.GetChanActions.Player.BasicAttack.performed += BasicAttackPerformed;
+
+            _player.CharacterHandlerInstance.OnChangeCharacter.AddListener(SetupNewCharacterAttackIndex);
+
+            SetupNewCharacterAttackIndex(_player.CharacterHandlerInstance.CurrentCharacter);
         }
 
         /// <summary>
@@ -54,7 +58,15 @@ namespace Game
         {
             yield return new WaitForSeconds(1.5f);
 
-            _currentAttackIndex = 0;
+            ResetAttackIndex();
+        }
+
+        private void SetupNewCharacterAttackIndex(Character ch)
+        {
+            StopAllCoroutines();
+            ResetAttackIndex();
+
+            _maxAttackIndex = ch.GetComponent<CharacterAttackIndexIndicator>().GetAttacksAllowed;
         }
     }
 }
