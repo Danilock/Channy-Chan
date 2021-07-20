@@ -10,7 +10,7 @@ namespace Game
         
         public override void DoAttack()
         {
-            //Creates a physics circle to detect all target
+            //Creates a physics circle to detect all targets.
             Collider2D[] targets = Physics2D.OverlapCircleAll(AttackSpawnPoint.position, AreaSize, AttackLayers);
 
             foreach(Collider2D currentTarget in targets)

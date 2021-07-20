@@ -31,7 +31,7 @@ namespace Game {
     
         public void DoDamageToTarget(DamageableComponent dmg)
         {
-            dmg.DamageableProfile.TakeDamage(AttackDamage, Owner.Element);
+            dmg.DamageableProfile.TakeDamage(AttackDamage + Owner.Damage, Owner.Element);
         }
     }
 }

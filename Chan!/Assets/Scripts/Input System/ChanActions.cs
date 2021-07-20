@@ -27,17 +27,25 @@ public class @ChanActions : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Use Ability"",
+                    ""name"": ""Jump"",
                     ""type"": ""Button"",
-                    ""id"": ""6e2db45f-7cbc-4885-ae1d-a306d2ef67ca"",
+                    ""id"": ""e9e88582-742f-4655-85ac-92a9d30f5363"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Jump"",
+                    ""name"": ""Basic Attack"",
                     ""type"": ""Button"",
-                    ""id"": ""e9e88582-742f-4655-85ac-92a9d30f5363"",
+                    ""id"": ""208d7096-97f6-4738-b6bd-64fa2247df6f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Use Ability"",
+                    ""type"": ""Button"",
+                    ""id"": ""6e2db45f-7cbc-4885-ae1d-a306d2ef67ca"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -158,28 +166,6 @@ public class @ChanActions : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""b701fb37-3e1a-4f84-ab30-1166736fb216"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""b1182939-1dfc-4c4f-a03c-61e56a484edf"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""1043d4d0-44ac-4dfb-a630-0f147abd7fad"",
                     ""path"": ""<Keyboard>/1"",
                     ""interactions"": """",
@@ -219,6 +205,39 @@ public class @ChanActions : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Pick Character 3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b701fb37-3e1a-4f84-ab30-1166736fb216"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b1182939-1dfc-4c4f-a03c-61e56a484edf"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d02e67ce-e77b-4274-86f4-bcb8163e0303"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Basic Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -797,8 +816,9 @@ public class @ChanActions : IInputActionCollection, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
-        m_Player_UseAbility = m_Player.FindAction("Use Ability", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
+        m_Player_BasicAttack = m_Player.FindAction("Basic Attack", throwIfNotFound: true);
+        m_Player_UseAbility = m_Player.FindAction("Use Ability", throwIfNotFound: true);
         m_Player_PickCharacter1 = m_Player.FindAction("Pick Character 1", throwIfNotFound: true);
         m_Player_PickCharacter2 = m_Player.FindAction("Pick Character 2", throwIfNotFound: true);
         m_Player_PickCharacter3 = m_Player.FindAction("Pick Character 3", throwIfNotFound: true);
@@ -864,8 +884,9 @@ public class @ChanActions : IInputActionCollection, IDisposable
     private readonly InputActionMap m_Player;
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Move;
-    private readonly InputAction m_Player_UseAbility;
     private readonly InputAction m_Player_Jump;
+    private readonly InputAction m_Player_BasicAttack;
+    private readonly InputAction m_Player_UseAbility;
     private readonly InputAction m_Player_PickCharacter1;
     private readonly InputAction m_Player_PickCharacter2;
     private readonly InputAction m_Player_PickCharacter3;
@@ -874,8 +895,9 @@ public class @ChanActions : IInputActionCollection, IDisposable
         private @ChanActions m_Wrapper;
         public PlayerActions(@ChanActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
-        public InputAction @UseAbility => m_Wrapper.m_Player_UseAbility;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
+        public InputAction @BasicAttack => m_Wrapper.m_Player_BasicAttack;
+        public InputAction @UseAbility => m_Wrapper.m_Player_UseAbility;
         public InputAction @PickCharacter1 => m_Wrapper.m_Player_PickCharacter1;
         public InputAction @PickCharacter2 => m_Wrapper.m_Player_PickCharacter2;
         public InputAction @PickCharacter3 => m_Wrapper.m_Player_PickCharacter3;
@@ -891,12 +913,15 @@ public class @ChanActions : IInputActionCollection, IDisposable
                 @Move.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
-                @UseAbility.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUseAbility;
-                @UseAbility.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUseAbility;
-                @UseAbility.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUseAbility;
                 @Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
+                @BasicAttack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBasicAttack;
+                @BasicAttack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBasicAttack;
+                @BasicAttack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBasicAttack;
+                @UseAbility.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUseAbility;
+                @UseAbility.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUseAbility;
+                @UseAbility.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUseAbility;
                 @PickCharacter1.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickCharacter1;
                 @PickCharacter1.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickCharacter1;
                 @PickCharacter1.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickCharacter1;
@@ -913,12 +938,15 @@ public class @ChanActions : IInputActionCollection, IDisposable
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
-                @UseAbility.started += instance.OnUseAbility;
-                @UseAbility.performed += instance.OnUseAbility;
-                @UseAbility.canceled += instance.OnUseAbility;
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
+                @BasicAttack.started += instance.OnBasicAttack;
+                @BasicAttack.performed += instance.OnBasicAttack;
+                @BasicAttack.canceled += instance.OnBasicAttack;
+                @UseAbility.started += instance.OnUseAbility;
+                @UseAbility.performed += instance.OnUseAbility;
+                @UseAbility.canceled += instance.OnUseAbility;
                 @PickCharacter1.started += instance.OnPickCharacter1;
                 @PickCharacter1.performed += instance.OnPickCharacter1;
                 @PickCharacter1.canceled += instance.OnPickCharacter1;
@@ -1085,8 +1113,9 @@ public class @ChanActions : IInputActionCollection, IDisposable
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
-        void OnUseAbility(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnBasicAttack(InputAction.CallbackContext context);
+        void OnUseAbility(InputAction.CallbackContext context);
         void OnPickCharacter1(InputAction.CallbackContext context);
         void OnPickCharacter2(InputAction.CallbackContext context);
         void OnPickCharacter3(InputAction.CallbackContext context);

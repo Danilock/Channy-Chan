@@ -17,13 +17,12 @@ namespace Game
             
         }
 
-        public override void FixedUpdateTick(PlayerController entity)
-        {
-            
-        }
-
         public override void TickState(PlayerController entity)
         {
+            if (PlayerMovement.IsMoving)
+                entity.PlayerMachine.SetState(entity.WalkState);
+            else if (InputHandler.JumpTriggered)
+                entity.PlayerMachine.SetState(entity.JumpState);
         }
     }
 }

@@ -18,6 +18,9 @@ namespace Game
         #region Player State Machine
         public StateMachine<PlayerController> PlayerMachine;
         public PlayerIdleState IdleState = new PlayerIdleState();
+        public PlayerWalkState WalkState = new PlayerWalkState();
+        public PlayerJumpState JumpState = new PlayerJumpState();
+        public PlayerAttackState AttackState = new PlayerAttackState();
         #endregion
 
         #region CharacterController2D
@@ -30,10 +33,20 @@ namespace Game
         #endregion
 
         #region External Components
-        public Animator Animator { get; set; }
         private CharacterHandler _characterHandler;
-        private SpriteRenderer _spriteRenderer;
-        private DamageableComponent _damageable;
+        public Rigidbody2D Rigidbody
+        {
+            get => _ch2D.Rgb2D;
+        }
+
+        public Animator CurrentCharacterAnimator
+        {
+            get => _characterHandler.CurrentCharacter.Animator;
+        }
+        public PlayerAnimations PlayerAnimationsHandler;
+
+        public PlayerAttackController AttackController;
+        public PlayerMovement Movement;
         #endregion
         private void Awake()
         {
@@ -49,12 +62,14 @@ namespace Game
             PlayerMachine = new StateMachine<PlayerController>(this);
 
             #region Get Components
+            PlayerAnimationsHandler = GetComponent<PlayerAnimations>();
+            AttackController = GetComponent<PlayerAttackController>();
+            Movement = GetComponent<PlayerMovement>();
             _ch2D = GetComponent<CharacterController2D>();
             _characterHandler = GetComponent<CharacterHandler>();
-            _spriteRenderer = GetComponent<SpriteRenderer>();
-            _damageable = GetComponent<DamageableComponent>();
             #endregion
         }
+
 
         private void Start()
         {
@@ -67,5 +82,39 @@ namespace Game
             //Current state is running on it's tick state.
             PlayerMachine.CurrentState.TickState(this);
         }
+        
+        /// <summary>
+        /// Sets a player state based on enums.
+        /// </summary>
+        /// <param name="newState"></param>
+        public void SetPlayerStateByEnum(PlayerStates newState)
+        {
+            switch (newState)
+            {
+                case PlayerStates.IdleState:
+                    PlayerMachine.SetState(IdleState);
+                    break;
+
+                case PlayerStates.JumpState:
+                    PlayerMachine.SetState(JumpState);
+                    break;
+
+                case PlayerStates.WalkState:
+                    PlayerMachine.SetState(WalkState);
+                    break;
+
+                case PlayerStates.AttackState:
+                    PlayerMachine.SetState(AttackState);
+                    break;
+            }
+        }
     }
+}
+
+public enum PlayerStates
+{
+    IdleState,
+    WalkState,
+    JumpState,
+    AttackState
 }

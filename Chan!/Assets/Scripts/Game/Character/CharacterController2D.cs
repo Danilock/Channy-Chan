@@ -15,6 +15,11 @@ namespace Game
         #region  Physics
         [Header("Movement")]
         [SerializeField, Range(0f, 20)] private float _speedModifier;
+        public float SpeedModifier
+        {
+            get => _speedModifier;
+            set => _speedModifier = value;
+        }
         [Header("Jump")]
         [SerializeField] private float _jumpForce;
         [Header("Ground Check")]

@@ -16,6 +16,12 @@ namespace Game {
         public int Health { get; set; }
         [HideInInspector] public Element Element = new Element();
         public Sprite Portrait { get; set; }
+
+        [SerializeField] private Animator _animator;
+        public Animator Animator
+        {
+            get => _animator;
+        }
         #endregion
 
         public void SetupCharacter(string name, string description, int damage, int health, Element element, Sprite portrait)
