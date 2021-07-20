@@ -31,6 +31,10 @@ namespace Game
             InputHandler.GetChanActions.Player.BasicAttack.performed += BasicAttackPerformed;
         }
 
+        /// <summary>
+        /// Called everytime the basic attack key is performed. Triggers the atack animation and increases the attack index value.
+        /// </summary>
+        /// <param name="obj"></param>
         private void BasicAttackPerformed(InputAction.CallbackContext obj)
         {
             if (!CanAttack)

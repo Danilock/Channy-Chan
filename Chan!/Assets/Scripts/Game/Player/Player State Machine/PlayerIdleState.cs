@@ -19,8 +19,10 @@ namespace Game
 
         public override void TickState(PlayerController entity)
         {
+            //If is moving, then changes to the walk state.
             if (PlayerMovement.IsMoving)
                 entity.PlayerMachine.SetState(entity.WalkState);
+            //If the jump key is triggered, then changes to jump state.
             else if (InputHandler.JumpTriggered)
                 entity.PlayerMachine.SetState(entity.JumpState);
         }

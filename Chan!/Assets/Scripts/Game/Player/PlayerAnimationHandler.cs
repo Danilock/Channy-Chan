@@ -8,7 +8,7 @@ namespace Game {
         [SerializeField] private PlayerStates OnEnterAnimState, OnExitAnimState;
         private PlayerController _player;
 
-        // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
+        // Sets the player state to OnEnterAnimState.
         override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
             _player = FindObjectOfType<PlayerController>();
@@ -16,7 +16,7 @@ namespace Game {
             _player.SetPlayerStateByEnum(OnEnterAnimState);
         }
 
-        // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
+        // Sets the player state to OnExitAnimState.
         override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
             _player.SetPlayerStateByEnum(OnExitAnimState);

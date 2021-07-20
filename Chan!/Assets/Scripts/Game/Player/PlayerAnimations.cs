@@ -20,16 +20,28 @@ namespace Game
             _player = GetComponent<PlayerController>();
         }
 
+        /// <summary>
+        /// Calls the walk animation.
+        /// </summary>
+        /// <param name="state">If it's true, the animation will be called.</param>
         public static void TriggerWalkAnimation(bool state)
         {
             _player.CurrentCharacterAnimator.SetBool(HashMove, state);
         }
 
+        /// <summary>
+        /// Sets the jump animation.
+        /// </summary>
+        /// <param name="state">If it's true, the animation will be called.</param>
         public static void TriggerJumpAnimation(bool state)
         {
             _player.CurrentCharacterAnimator.SetBool(HashJump, state);
         }
-
+        /// <summary>
+        /// Executes certain attack animation depending on the index.
+        /// </summary>
+        /// <param name="state">If it's true, the animation will be called.</param>
+        /// <param name="index">Determines the </param>
         public static void TriggerAttackAnimation(bool state, int index)
         {
             _player.CurrentCharacterAnimator.SetTrigger(HashAttack);
