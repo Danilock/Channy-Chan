@@ -19,7 +19,7 @@ namespace Game
         /// </summary>
         private int _currentAttackIndex;
 
-        private int _maxAttackIndex = 3;
+        private int _maxAttackIndex = 4;
 
         private void Awake()
         {
@@ -43,8 +43,18 @@ namespace Game
             PlayerAnimations.TriggerAttackAnimation(true, _currentAttackIndex);
 
             _currentAttackIndex = (_currentAttackIndex + 1) % _maxAttackIndex;
+
+            StopAllCoroutines();
+            StartCoroutine(ResetAttackIndex_Coroutine());
         }
 
         public void ResetAttackIndex() => _currentAttackIndex = 0;
+
+        private IEnumerator ResetAttackIndex_Coroutine()
+        {
+            yield return new WaitForSeconds(1.5f);
+
+            _currentAttackIndex = 0;
+        }
     }
 }

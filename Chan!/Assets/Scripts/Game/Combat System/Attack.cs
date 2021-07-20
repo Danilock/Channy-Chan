@@ -16,7 +16,7 @@ namespace Game {
         /// <summary>
         /// Owner of the attack.
         /// </summary>
-        protected Character Owner;
+        [SerializeField] protected Character Owner;
 
         /// <summary>
         /// Where should be this attack initialized.

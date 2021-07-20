@@ -24,7 +24,7 @@ namespace Game
 
         public override void TickState(PlayerController entity)
         {
-            if (entity.CharacterController.IsGrounded && entity.Rigidbody.velocity.y == 0f)
+            if (entity.CharacterController.IsGrounded && entity.Rigidbody.velocity.y <= .01f)
                 entity.PlayerMachine.SetState(entity.IdleState);
         }
     }

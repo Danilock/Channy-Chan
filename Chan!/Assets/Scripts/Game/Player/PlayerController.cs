@@ -21,6 +21,7 @@ namespace Game
         public PlayerWalkState WalkState = new PlayerWalkState();
         public PlayerJumpState JumpState = new PlayerJumpState();
         public PlayerAttackState AttackState = new PlayerAttackState();
+        public PlayerLandState LandState = new PlayerLandState();
         #endregion
 
         #region CharacterController2D
@@ -106,6 +107,10 @@ namespace Game
                 case PlayerStates.AttackState:
                     PlayerMachine.SetState(AttackState);
                     break;
+
+                case PlayerStates.LandState:
+                    PlayerMachine.SetState(LandState);
+                    break;
             }
         }
     }
@@ -116,5 +121,6 @@ public enum PlayerStates
     IdleState,
     WalkState,
     JumpState,
-    AttackState
+    AttackState,
+    LandState
 }
