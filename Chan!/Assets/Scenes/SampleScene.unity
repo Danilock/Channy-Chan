@@ -374,6 +374,7 @@ MonoBehaviour:
     WeakerAgainst: 
     StrongAgainst: 
   _animator: {fileID: 0}
+  Ability: {fileID: 0}
 --- !u!4 &1651024843
 Transform:
   m_ObjectHideFlags: 0

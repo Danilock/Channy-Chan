@@ -1,18 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Game;
 
-public class BaseAbility : MonoBehaviour
+/// <summary>
+/// Base class for scriptable abilities.
+/// </summary>
+public abstract class BaseAbility : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    /// <summary>
+    /// Character who owns of the ability.
+    /// </summary>
+    [HideInInspector] public Character Owner;
 
-    // Update is called once per frame
-    void Update()
+    /// <summary>
+    /// Ability Name.
+    /// </summary>
+    public string Name;
+    /// <summary>
+    /// Ability Description.
+    /// </summary>
+    [HideInInspector] public string Description;
+
+    [Header("Stats")]
+    public float Cooldown;
+
+    public virtual void SetupAbility()
     {
-        
+
     }
+    public abstract void AbilityBehaviour();
 }

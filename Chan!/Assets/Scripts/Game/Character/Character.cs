@@ -10,10 +10,10 @@ namespace Game {
         public LevelEXP CharacterEXP = new LevelEXP();
 
         #region Character Stats Variables
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public int Damage { get; set; }
-        public int Health { get; set; }
+        public string Name { get; private set; }
+        public string Description { get; private set; }
+        public int Damage { get; private set; }
+        public int Health { get; private set; }
         [HideInInspector] public Element Element = new Element();
         public Sprite Portrait { get; set; }
 
@@ -24,14 +24,26 @@ namespace Game {
         }
         #endregion
 
-        public void SetupCharacter(string name, string description, int damage, int health, Element element, Sprite portrait)
+        public AbilityComponent Ability;
+
+        private void Start()
         {
-            this.Name = name;
-            this.Description = description;
-            this.Damage = damage;
-            this.Health = health;
-            this.Element = element;
-            this.Portrait = portrait;
+            //TODO: Check if there's a saved profile for this character to setup.
+
+            SetupCharacter(Profile);
+        }
+
+        public void SetupCharacter(ScriptableCharacterProfile profile)
+        {
+            if (profile == null)
+                return;
+
+            this.Name = profile.Name;
+            this.Description = profile.Description;
+            this.Damage = profile.BaseDamage;
+            this.Health = profile.BaseHealth;
+            this.Element = profile.ScriptableElement.Element;
+            this.Portrait = profile.Portrait;
         }
     }
 }

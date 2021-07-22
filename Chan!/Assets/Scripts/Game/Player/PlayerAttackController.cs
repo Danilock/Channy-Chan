@@ -14,6 +14,11 @@ namespace Game
 
         public bool CanAttack = true;
 
+        private bool IsCurrentCharacterAllowedToUseAbility
+        {
+            get => _player.CharacterHandlerInstance.CurrentCharacter.Ability.CanUse;
+        }
+
         /// <summary>
         /// Used to determine which animation index is going to be called.
         /// </summary>
@@ -29,6 +34,7 @@ namespace Game
         private void Start()
         {
             InputHandler.GetChanActions.Player.BasicAttack.performed += BasicAttackPerformed;
+            InputHandler.GetChanActions.Player.UseAbility.performed += AbilityPerformed;
 
             _player.CharacterHandlerInstance.OnChangeCharacter.AddListener(SetupNewCharacterAttackIndex);
 
@@ -36,7 +42,7 @@ namespace Game
         }
 
         /// <summary>
-        /// Called everytime the basic attack key is performed. Triggers the atack animation and increases the attack index value.
+        /// Called once the basic attack key is performed. Triggers the atack animation and increases the attack index value by 1.
         /// </summary>
         /// <param name="obj"></param>
         private void BasicAttackPerformed(InputAction.CallbackContext obj)
@@ -50,6 +56,14 @@ namespace Game
 
             StopAllCoroutines();
             StartCoroutine(ResetAttackIndex_Coroutine());
+        }
+
+        private void AbilityPerformed(InputAction.CallbackContext obj)
+        {
+            if (!IsCurrentCharacterAllowedToUseAbility)
+                return;
+
+            PlayerAnimations.TriggerAbilityAnimation();
         }
 
         public void ResetAttackIndex() => _currentAttackIndex = 0;

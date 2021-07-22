@@ -96,13 +96,8 @@ namespace Game
         private IEnumerator HandleSwitchCooldown()
         {
             _canSwitch = false;
-            yield return new WaitForSeconds(_switchCooldown);
+            yield return new WaitForSecondsRealtime(_switchCooldown);
             _canSwitch = true;
-        }
-
-        private void UpdateCharacterHealth(int currentHealth, int damageReceived)
-        {
-            CurrentCharacter.Health = currentHealth;
         }
     }
 }

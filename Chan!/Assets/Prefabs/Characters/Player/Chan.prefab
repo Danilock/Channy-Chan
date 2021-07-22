@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 996436869310868407}
   - component: {fileID: 1998474686164271527}
   - component: {fileID: 7346616384606470174}
+  - component: {fileID: 1232585376}
   m_Layer: 0
   m_Name: Chan
   m_TagString: Untagged
@@ -96,6 +97,7 @@ MonoBehaviour:
     WeakerAgainst: 
     StrongAgainst: 
   _animator: {fileID: 996436869310868407}
+  Ability: {fileID: 1232585376}
 --- !u!212 &2691316076379125362
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -214,7 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e15b2fa739c57b4d8272229fab615f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attacksAllowed: 4
+  _attacksAllowed: 3
 --- !u!114 &7346616384606470174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,6 +237,21 @@ MonoBehaviour:
     m_Bits: 0
   _damageAreaSize: 4.09
   _rangeType: 1
+  _isAttacking: 0
+--- !u!114 &1232585376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2691316076379125375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8ec7e644a629114e9414ca32cd08e3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scriptableAbility: {fileID: 11400000, guid: 0eeb8a1badcc82a41ac395185f81a34f, type: 2}
+  _canUse: 1
 --- !u!1 &2691316076622153411
 GameObject:
   m_ObjectHideFlags: 0
