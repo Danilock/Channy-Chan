@@ -27,13 +27,15 @@ namespace Game
             _scriptableAbility.SetupAbility();
         }
 
-        [ContextMenu("Use Ability")]
+
         public void TriggerAbility()
         {
             if (!_canUse)
                 return;
 
             _scriptableAbility.AbilityBehaviour();
+
+            TriggerAbilityCooldown();
         }
 
         public void TriggerAbilityCooldown() => StartCoroutine(HandleAbilityCooldown_Coroutine());

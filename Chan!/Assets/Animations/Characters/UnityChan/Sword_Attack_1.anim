@@ -21,17 +21,17 @@ AnimationClip:
   - curve:
     - time: 0
       value: {fileID: 21300000, guid: ea2fb3a60fdac4d66ab8307a354b03a4, type: 3}
-    - time: 0.06666667
+    - time: 0.033333335
       value: {fileID: 21300000, guid: 88d2e77cafdc0434da6c647f6fd20f54, type: 3}
-    - time: 0.18333334
+    - time: 0.16666667
       value: {fileID: 21300000, guid: df09f9b5cd6b74649ab2ebfc3917731a, type: 3}
-    - time: 0.25
+    - time: 0.2
       value: {fileID: 21300000, guid: faab9be8cfaaf46d182856d923fd8377, type: 3}
-    - time: 0.31666666
+    - time: 0.26666668
       value: {fileID: 21300000, guid: 665ea8fbb45f14f52b602027c18b56f4, type: 3}
-    - time: 0.43333334
+    - time: 0.38333333
       value: {fileID: 21300000, guid: 322d74f06a4ed4c86b66bdc0e371c1a5, type: 3}
-    - time: 0.5
+    - time: 0.41666666
       value: {fileID: 21300000, guid: 8acce0fb0217a435f84bb7737e28825b, type: 3}
     attribute: m_Sprite
     path: 
@@ -64,7 +64,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.51666665
+    m_StopTime: 0.43333334
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -84,14 +84,14 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.31666666
+  - time: 0.21666667
     functionName: StartMeleeAttack
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.5
+  - time: 0.41666666
     functionName: EndMeleeAttack
     data: 
     objectReferenceParameter: {fileID: 0}

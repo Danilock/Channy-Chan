@@ -25,11 +25,27 @@ namespace Game
             private set => _currentCharacter = value;
         }
 
+        private Character _lastCharacter;
+        public Character LastCharacter
+        {
+            get => _lastCharacter;
+            private set => _lastCharacter = value;
+        }
+
+        /// <summary>
+        /// Invoked once the player change characters. Returns the current character and the last character.
+        /// </summary>
         public UnityEvent<Character> OnChangeCharacter;
 
         [Header("Switch Control")]
         [SerializeField] private float _switchCooldown;
         [SerializeField] private bool _canSwitch = true;
+
+        public bool CanSwitch
+        {
+            get => _canSwitch;
+            set => _canSwitch = value;
+        }
 
         private void Start()
         {
@@ -59,11 +75,16 @@ namespace Game
                 return;
             }
 
-            CurrentCharacter?.gameObject.SetActive(false);
+            if (CurrentCharacter != null)
+                LastCharacter = CurrentCharacter;
+
+            HandleCharacterActivation(CurrentCharacter, false);
 
             CurrentCharacter = _characters[index];
 
             CurrentCharacter.gameObject.SetActive(true);
+
+            HandleCharacterActivation(CurrentCharacter, true);
 
             OnChangeCharacter?.Invoke(CurrentCharacter);
 
@@ -83,10 +104,24 @@ namespace Game
         {
             foreach(Character currentCharacter in _characters)
             {
-                currentCharacter.gameObject.SetActive(false);
+                HandleCharacterActivation(currentCharacter, false);
             }
 
             ChangeCharacter(0);
+        }
+
+        /// <summary>
+        /// Makes a character visible or not depending on the state passed as a parameter.
+        /// </summary>
+        /// <param name="ch"></param>
+        /// <param name="state"></param>
+        public void HandleCharacterActivation(Character ch, bool state)
+        {
+            if (ch == null)
+                return;
+
+            ch.Renderer.enabled = state;
+            ch.Collider.enabled = state;
         }
 
         /// <summary>

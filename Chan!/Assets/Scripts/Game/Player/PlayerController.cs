@@ -78,6 +78,8 @@ namespace Game
         {
             //Set the idleState as initial state.
             PlayerMachine.SetState(IdleState);
+
+            _characterHandler.OnChangeCharacter.AddListener(x => PlayerMachine.SetState(IdleState));
         }
 
         private void Update()

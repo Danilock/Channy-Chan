@@ -26,6 +26,15 @@ namespace Game {
 
         public AbilityComponent Ability;
 
+        public SpriteRenderer Renderer;
+        public Collider2D Collider;
+
+        private void Awake()
+        {
+            Renderer = GetComponent<SpriteRenderer>();
+            Collider = GetComponent<Collider2D>();
+        }
+
         private void Start()
         {
             //TODO: Check if there's a saved profile for this character to setup.

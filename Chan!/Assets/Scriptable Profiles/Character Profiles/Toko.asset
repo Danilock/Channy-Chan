@@ -10,11 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f3baea5e9fc8e5f448f873bfa5249332, type: 3}
-  m_Name: Daniel
+  m_Name: Toko
   m_EditorClassIdentifier: 
   Portrait: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   ScriptableElement: {fileID: 11400000, guid: 006bef5742b8ea04daa5bedfdbbb43ac, type: 2}
-  Name: Daniel
-  Description: Daniel is a weeb
+  Name: Toko
+  Description: Toko is a martial art practicer who decided to use weapons. Her father
+    made Toko spend all her chilhood training to become the best martial art fighter,
+    but at the end she decided to use weapons.
   BaseHealth: 100
   BaseDamage: 15
