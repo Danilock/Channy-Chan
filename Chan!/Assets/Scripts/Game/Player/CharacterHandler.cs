@@ -75,16 +75,25 @@ namespace Game
                 return;
             }
 
+            #region Handle Last Character
             if (CurrentCharacter != null)
+            {
                 LastCharacter = CurrentCharacter;
 
+                LastCharacter.Animator.SetBool(PlayerAnimations.HashMove, false);
+                LastCharacter.Animator.SetBool(PlayerAnimations.HashJump, false);
+                LastCharacter.Animator.SetFloat(PlayerAnimations.HashAttack, 0f);
+            }
+
+            #endregion
+
+            #region Handle Character Switch
             HandleCharacterActivation(CurrentCharacter, false);
 
             CurrentCharacter = _characters[index];
 
-            CurrentCharacter.gameObject.SetActive(true);
-
             HandleCharacterActivation(CurrentCharacter, true);
+            #endregion
 
             OnChangeCharacter?.Invoke(CurrentCharacter);
 

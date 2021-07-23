@@ -11,10 +11,10 @@ namespace Game
     {
         private static PlayerController _player;
 
-        private static readonly int HashMove = Animator.StringToHash("Walk");
-        private static readonly int HashJump = Animator.StringToHash("Jump");
-        private static readonly int HashAttack = Animator.StringToHash("Attacking");
-        private static readonly int HashAbility = Animator.StringToHash("UseAbility");
+        public static readonly int HashMove = Animator.StringToHash("Walk");
+        public static readonly int HashJump = Animator.StringToHash("Jump");
+        public static readonly int HashAttack = Animator.StringToHash("Attacking");
+        public static readonly int HashAbility = Animator.StringToHash("UseAbility");
 
         private void Start()
         {
