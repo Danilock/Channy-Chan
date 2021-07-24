@@ -10,21 +10,17 @@ namespace Game
 
         [SerializeField] private bool _isAttacking;
 
-        public void StartMeleeAttack() => _isAttacking = true;
-        public void EndMeleeAttack() => _isAttacking = false;
-
         private void FixedUpdate()
         {
             if (_isAttacking)
                 DoAttack();
         }
-
         public override void DoAttack()
         {
             //Creates a physics circle to detect all targets.
             Collider2D[] targets = Physics2D.OverlapCircleAll(AttackSpawnPoint.position, AreaSize, AttackLayers);
 
-            foreach(Collider2D currentTarget in targets)
+            foreach (Collider2D currentTarget in targets)
             {
                 DamageableComponent dmg = currentTarget.GetComponent<DamageableComponent>();
 
@@ -32,6 +28,9 @@ namespace Game
                     DoDamageToTarget(dmg);
             }
         }
+
+        public void StartMeleeAttack() => _isAttacking = true;
+        public void EndMeleeAttack() => _isAttacking = false;
 
         private void OnDrawGizmosSelected()
         {

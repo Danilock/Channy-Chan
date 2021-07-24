@@ -26,19 +26,23 @@ namespace Game {
 
         public AbilityComponent Ability;
 
-        public SpriteRenderer Renderer;
-        public Collider2D Collider;
+        [HideInInspector] public SpriteRenderer Renderer;
+        [HideInInspector] public Collider2D Collider;
+
+        private DamageableComponent _damageable;
+        public DamageableComponent Damageable
+        {
+            get => _damageable;
+            private set => _damageable = value;
+        }
 
         private void Awake()
         {
             Renderer = GetComponent<SpriteRenderer>();
             Collider = GetComponent<Collider2D>();
-        }
+            Damageable = GetComponent<DamageableComponent>();
 
-        private void Start()
-        {
             //TODO: Check if there's a saved profile for this character to setup.
-
             SetupCharacter(Profile);
         }
 

@@ -13,13 +13,19 @@ namespace Tests
         [Test]
         public void DamageCalculatorTestSimplePasses()
         {
-            Damageable damageable = new Damageable();
+            GameObject obj = new GameObject("Obj");
 
-            damageable.CurrentHealth = 100;
-            damageable.ScriptableElement = (ScriptableElement) ScriptableObject.CreateInstance("ScriptableElement");
-            damageable.ScriptableElement.Element = ElementGenerator.GetFireElement;
+            DamageableComponent damageable = obj.AddComponent<DamageableComponent>();
 
-            damageable.TakeDamage(10, ElementGenerator.GetWaterElement);
+            damageable.SetHealth(100);
+            damageable.Element = ElementGenerator.GetFireElement;
+            damageable.Team = DamageableTeam.Enemy;
+
+            DamageDealer dealer;
+            dealer.Team = DamageableTeam.PlayerFriendly;
+            dealer.Element = ElementGenerator.GetWaterElement;
+
+            damageable.TakeDamage(10, dealer);
 
             Assert.AreEqual(85, damageable.CurrentHealth);
         }

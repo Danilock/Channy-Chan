@@ -11,10 +11,10 @@ namespace Game
     {
         private static PlayerController _player;
 
-        public static readonly int HashMove = Animator.StringToHash("Walk");
-        public static readonly int HashJump = Animator.StringToHash("Jump");
-        public static readonly int HashAttack = Animator.StringToHash("Attacking");
-        public static readonly int HashAbility = Animator.StringToHash("UseAbility");
+        private static readonly int HashMove = Animator.StringToHash("Walk");
+        private static readonly int HashJump = Animator.StringToHash("Jump");
+        private static readonly int HashAttack = Animator.StringToHash("Attacking");
+        private static readonly int HashAbility = Animator.StringToHash("UseAbility");
 
         private void Start()
         {
@@ -52,6 +52,13 @@ namespace Game
         public static void TriggerAbilityAnimation()
         {
             _player.CurrentCharacterAnimator.SetTrigger(HashAbility);
+        }
+
+        public static void RestoreCharacterAnimatorParameters(Character ch)
+        {
+            ch.Animator.SetBool("Walk", false);
+            ch.Animator.SetBool("Jump", false);
+            ch.Animator.SetFloat("Attack Index", 0f);
         }
     }
 }

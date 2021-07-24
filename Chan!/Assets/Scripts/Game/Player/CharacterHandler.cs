@@ -69,7 +69,7 @@ namespace Game
             if (!_canSwitch)
                 return;
 
-            if(CurrentCharacter == _characters[index])
+            if(CurrentCharacter == _characters[index] || _characters[index].Damageable.IsDead)
             {
                 //TODO: Make error sound
                 return;
@@ -80,9 +80,7 @@ namespace Game
             {
                 LastCharacter = CurrentCharacter;
 
-                LastCharacter.Animator.SetBool(PlayerAnimations.HashMove, false);
-                LastCharacter.Animator.SetBool(PlayerAnimations.HashJump, false);
-                LastCharacter.Animator.SetFloat(PlayerAnimations.HashAttack, 0f);
+                PlayerAnimations.RestoreCharacterAnimatorParameters(LastCharacter);
             }
 
             #endregion
