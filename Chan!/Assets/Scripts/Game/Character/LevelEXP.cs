@@ -5,11 +5,11 @@ using UnityEngine.Events;
 
 namespace Game
 {
-    /// <summary>
     /// ---------------------------|Class Info|---------------------------
+    /// <summary>
     /// Class used to represent exp data.
-    /// ------------------------------------------------------------------
     /// </summary>
+    /// ------------------------------------------------------------------
     [System.Serializable]
     public class LevelEXP
     {

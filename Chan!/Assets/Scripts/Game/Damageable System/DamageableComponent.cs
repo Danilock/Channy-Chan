@@ -8,6 +8,7 @@ namespace Game
     /// <summary>
     /// Represents a damageable object in game.
     /// </summary>
+    [DisallowMultipleComponent]
     public class DamageableComponent : MonoBehaviour
     {
         #region Fields
@@ -49,7 +50,6 @@ namespace Game
         /// <param name="damageDealerElement">Element of the damage dealer.</param>
         public void TakeDamage(int amount, DamageDealer dealer)
         {
-            Debug.Log("Receiving damage");
             if (IsDead || IsInvulnerable || dealer.Team == Team)
                 return;
 
@@ -70,16 +70,16 @@ namespace Game
         /// Adds extra damage to the incoming damage based on the elements.
         /// </summary>
         /// <param name="damage"></param>
-        /// <param name="damageDealer"></param>
+        /// <param name="damageDealerElement"></param>
         /// <param name="damageReceiver"></param>
         /// <returns></returns>
-        public int CalculateDamageBasedOnElements(int damage, Element damageDealer, Element damageReceiver)
+        public int CalculateDamageBasedOnElements(int damage, Element damageDealerElement, Element damageReceiver)
         {
             float damageFloat = damage;
 
-            if (damageDealer.StrongAgainst.Contains(damageReceiver.Type))
+            if (damageDealerElement.StrongAgainst.Contains(damageReceiver.Type))
                 damageFloat *= 1.5f;
-            else if (damageDealer.WeakerAgainst.Contains(damageReceiver.Type))
+            else if (damageDealerElement.WeakerAgainst.Contains(damageReceiver.Type))
                 damageFloat *= .5f;
 
             return (int)damageFloat;

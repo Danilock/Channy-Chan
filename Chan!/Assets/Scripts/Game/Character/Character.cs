@@ -7,7 +7,7 @@ namespace Game {
     {
         public ScriptableCharacterProfile Profile;
 
-        public LevelEXP CharacterEXP = new LevelEXP();
+        [HideInInspector] public LevelEXP CharacterEXP = new LevelEXP();
 
         #region Character Stats Variables
         public string Name { get; private set; }

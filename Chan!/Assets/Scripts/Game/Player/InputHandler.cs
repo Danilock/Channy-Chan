@@ -9,6 +9,7 @@ using UnityEngine;
 ///</Summary>
 namespace Game
 {
+    [DisallowMultipleComponent]
     public class InputHandler : Singleton<InputHandler>
     {
         private ChanActions _chanActions;

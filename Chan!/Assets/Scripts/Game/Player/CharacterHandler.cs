@@ -11,6 +11,7 @@ using UnityEngine.Events;
 /// </summary>
 namespace Game
 {
+    [DisallowMultipleComponent]
     public class CharacterHandler : MonoBehaviour
     {
         [SerializeField] private List<Character> _characters;

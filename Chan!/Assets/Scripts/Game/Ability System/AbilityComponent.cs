@@ -10,10 +10,11 @@ namespace Game
     /// Used to trigger the ability attached to the GameObject(Character).
     /// </summary>
     /// ==============================================================
+    [DisallowMultipleComponent]
     public class AbilityComponent : MonoBehaviour
     {
         [SerializeField] private BaseAbility _scriptableAbility;
-        [SerializeField] private bool _canUse;
+        [SerializeField] private bool _canUse = true;
 
         public bool CanUse
         {
@@ -34,7 +35,6 @@ namespace Game
                 return;
 
             _scriptableAbility.AbilityBehaviour();
-
             TriggerAbilityCooldown();
         }
 

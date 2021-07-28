@@ -6,7 +6,7 @@ namespace Game
 {
     /// <summary>
     /// Should be only attached to characters under the control of the player.
-    /// Set how many basic attacks the character has.
+    /// Set how many basic attacks this character contains.
     /// </summary>
     public class CharacterAttackIndexIndicator : MonoBehaviour
     {

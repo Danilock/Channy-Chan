@@ -49,6 +49,9 @@ namespace Game
             _player.CurrentCharacterAnimator.SetFloat("Attack Index", index);
         }
 
+        /// <summary>
+        /// Calls the ability animation of the current character.
+        /// </summary>
         public static void TriggerAbilityAnimation()
         {
             _player.CurrentCharacterAnimator.SetTrigger(HashAbility);

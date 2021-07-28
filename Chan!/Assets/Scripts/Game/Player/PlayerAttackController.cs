@@ -8,6 +8,7 @@ namespace Game
     /// <summary>
     /// Handles the player attacks taking in count the current character.
     /// </summary>
+    [DisallowMultipleComponent]
     public class PlayerAttackController : MonoBehaviour
     {
         private PlayerController _player;
