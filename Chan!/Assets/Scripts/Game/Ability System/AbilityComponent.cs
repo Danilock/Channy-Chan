@@ -46,5 +46,13 @@ namespace Game
             yield return new WaitForSeconds(_scriptableAbility.Cooldown);
             _canUse = true;
         }
+
+        private void OnDrawGizmos()
+        {
+            if (_scriptableAbility == null)
+                return;
+
+            _scriptableAbility.AbilityGizmos(this);
+        }
     }
 }

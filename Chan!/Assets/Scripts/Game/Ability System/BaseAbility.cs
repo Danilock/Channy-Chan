@@ -20,14 +20,22 @@ public abstract class BaseAbility : ScriptableObject
     /// <summary>
     /// Ability Description.
     /// </summary>
-    [HideInInspector] public string Description;
+    [TextArea] public string Description;
 
     [Header("Stats")]
     public float Cooldown;
+    public int BaseDamage;
+
+    protected int GetDamageBasedInOwner
+    {
+        get => BaseDamage + Owner.Damage;
+    }
 
     public virtual void SetupAbility()
     {
 
     }
     public abstract void AbilityBehaviour();
+
+    public abstract void AbilityGizmos(MonoBehaviour mono);
 }

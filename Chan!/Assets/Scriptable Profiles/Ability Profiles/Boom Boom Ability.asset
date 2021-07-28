@@ -13,6 +13,11 @@ MonoBehaviour:
   m_Name: Boom Boom Ability
   m_EditorClassIdentifier: 
   Owner: {fileID: 0}
-  Name: 
+  Name: 'Boom Boom '
   Description: 
   Cooldown: 3
+  BaseDamage: 25
+  _boomBoomSize: 1.5
+  _layers:
+    serializedVersion: 2
+    m_Bits: 128

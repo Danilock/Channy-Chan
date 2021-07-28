@@ -17,16 +17,14 @@ namespace Game
         }
         public override void DoAttack()
         {
-            //Creates a physics circle to detect all targets.
-            Collider2D[] targets = Physics2D.OverlapCircleAll(AttackSpawnPoint.position, AreaSize, AttackLayers);
-
-            foreach (Collider2D currentTarget in targets)
-            {
-                DamageableComponent dmg = currentTarget.GetComponent<DamageableComponent>();
-
-                if (dmg != null)
-                    DoDamageToTarget(dmg);
-            }
+            AttacksManager.DoAttackInCircleArea
+                (
+                    AttackSpawnPoint.position,
+                    AreaSize,
+                    AttackLayers,
+                    Owner.Damageable,
+                    GetDamageBasedInOwner
+                );
         }
 
         public void StartMeleeAttack() => _isAttacking = true;

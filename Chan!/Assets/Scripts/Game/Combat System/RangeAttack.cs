@@ -50,9 +50,13 @@ namespace Game
         /// </summary>
         private void AreaAttack()
         {
-            Collider2D[] targetsHitted = Physics2D.OverlapCircleAll(AttackSpawnPoint.position, _damageAreaSize, AttackLayers);
-
-            DoDamageToTargets(targetsHitted);
+            AttacksManager.DoAttackInCircleArea
+                (
+                    AttackSpawnPoint.position,
+                    _damageAreaSize, AttackLayers,
+                    Owner.Damageable,
+                    GetDamageBasedInOwner
+                );
         }
 
         /// <summary>
@@ -60,43 +64,14 @@ namespace Game
         /// </summary>
         private void LineAttack()
         {
-            RaycastHit2D[] targetsHitted = Physics2D.LinecastAll(AttackSpawnPoint.position, GenerateEndPointOfLine, AttackLayers);
-
-            DoDamageToTargets(targetsHitted);
-        }
-
-        /// <summary>
-        /// Do damage to all targets collider.
-        /// </summary>
-        /// <param name="targetsHitted"></param>
-        private void DoDamageToTargets(Collider2D[] targetsHitted)
-        {
-            foreach (Collider2D target in targetsHitted)
-            {
-                DamageableComponent dmg = target.GetComponent<DamageableComponent>();
-
-                if (dmg == null)
-                    return;
-
-                DoDamageToTarget(dmg);
-            }
-        }
-
-        /// <summary>
-        /// Do damage to all targets as raycasts.
-        /// </summary>
-        /// <param name="targetsHitted"></param>
-        private void DoDamageToTargets(RaycastHit2D[] targetsHitted)
-        {
-            foreach (RaycastHit2D target in targetsHitted)
-            {
-                DamageableComponent dmg = target.collider.GetComponent<DamageableComponent>();
-
-                if (dmg == null)
-                    return;
-
-                DoDamageToTarget(dmg);
-            }
+            AttacksManager.DoAttackInLineCast
+                (
+                    AttackSpawnPoint.position,
+                    _damageAreaSize,
+                    AttackLayers,
+                    Owner.Damageable,
+                    GetDamageBasedInOwner
+                );
         }
 
         private void OnDrawGizmos()

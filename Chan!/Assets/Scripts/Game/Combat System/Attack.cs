@@ -28,10 +28,67 @@ namespace Game {
         public abstract void DoAttack();
 
         public void SetOwner(Character newOner) => this.Owner = newOner;
-    
-        public void DoDamageToTarget(DamageableComponent dmg)
+
+        public int GetDamageBasedInOwner
         {
-            dmg.TakeDamage(AttackDamage + Owner.Damage, DamageDealerGenerator.GenerateDealer(Owner.Damageable));
+            get => AttackDamage + Owner.Damage;
+        }
+    }
+
+    public class AttacksManager
+    {
+        /// <summary> 
+        ///Creates a physics circle to detect all targets.
+        /// </summary>
+        /// <param name="point"></param>
+        /// <param name="size"></param>
+        /// <param name="layers"></param>
+        /// <param name="damageAmount"></param>
+        /// <param name="owner"></param>
+        public static void DoAttackInCircleArea(Vector2 point, float size, LayerMask layers, DamageableComponent owner, int damageAmount)
+        {
+            Collider2D[] targetsHitted = Physics2D.OverlapCircleAll(point, size, layers);
+
+            foreach (Collider2D currentTarget in targetsHitted)
+            {
+                DamageableComponent dmg = currentTarget.GetComponent<DamageableComponent>();
+
+                if (dmg == null)
+                    return;
+
+                dmg.TakeDamage(damageAmount, DamageDealerGenerator.GenerateDealer(owner));
+            }
+        }
+
+        public static void DoDamageToTarget(DamageableComponent target, DamageableComponent owner, int amount)
+        {
+            target.TakeDamage(amount, DamageDealerGenerator.GenerateDealer(owner));
+        }
+
+        /// <summary>
+        /// Do damage to all targets as raycasts.
+        /// </summary>
+        /// <param name="targetsHitted"></param>
+        public static void DoAttackInLineCast(Vector2 start, float size, LayerMask layers, DamageableComponent owner, int damageAmount)
+        {
+            RaycastHit2D[] targetsHitted = Physics2D.LinecastAll(start, GenerateEndPointOfLine(start, size), layers);
+
+            foreach (RaycastHit2D target in targetsHitted)
+            {
+                DamageableComponent dmg = target.collider.GetComponent<DamageableComponent>();
+
+                if (dmg == null)
+                    return;
+
+                DoDamageToTarget(dmg, owner, damageAmount);
+            }
+        }
+
+        private static Vector2 GenerateEndPointOfLine(Vector2 initialPoint, float size)
+        {
+            Vector2 endPoint = new Vector2(initialPoint.x + size, initialPoint.y);
+
+            return endPoint;
         }
     }
 }
