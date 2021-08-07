@@ -10,6 +10,10 @@ namespace Game
         [SerializeField] private RangeAttackType _rangeType = RangeAttackType.Area;
         [SerializeField] private bool _isAttacking = false;
 
+        [SerializeField] private PoolKey _poolKey;
+
+        [SerializeField] private Projectile _projectile;
+
         private Vector2 GenerateEndPointOfLine
         {
             get
@@ -20,12 +24,20 @@ namespace Game
             }
         }
 
+        private void Start()
+        {
+            if(_rangeType == RangeAttackType.Projectile)
+                ObjectPool.Instance.GeneratePool(_poolKey.KeyName, _projectile.gameObject, _poolKey.Amount);
+        }
+
         public override void DoAttack()
         {
             if (_rangeType == RangeAttackType.Area)
                 AreaAttack();
             else if (_rangeType == RangeAttackType.Line)
                 LineAttack();
+            else if (_rangeType == RangeAttackType.Projectile)
+                ProjectileAttack();
         }
 
         private void FixedUpdate()
@@ -45,6 +57,8 @@ namespace Game
 
         public void DoRangeAttack() => DoAttack();
 
+
+        #region Attacks Methods
         /// <summary>
         /// Creates a physics raycast circle, catches all the targets and do damage to them.
         /// </summary>
@@ -74,6 +88,12 @@ namespace Game
                 );
         }
 
+        private void ProjectileAttack()
+        {
+
+        }
+        #endregion
+
         private void OnDrawGizmos()
         {
             if (AttackSpawnPoint == null)
@@ -90,5 +110,6 @@ namespace Game
 public enum RangeAttackType
 {
     Area,
-    Line
+    Line,
+    Projectile
 }

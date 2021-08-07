@@ -90,5 +90,10 @@ namespace Game {
 
             return endPoint;
         }
+
+        public static void GenerateProjectile()
+        {
+
+        }
     }
 }
