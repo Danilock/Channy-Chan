@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 namespace Game
 {
     public class ObjectPool : Singleton<ObjectPool>
     {
-        private Dictionary<string, List<GameObject>> PoolManager;
+        private Dictionary<string, Pool> PoolManager;
 
         private void Awake()
         {
@@ -15,10 +16,10 @@ namespace Game
             else
             {
                 _instance = this;
-                //DontDestroyOnLoad(this.gameObject);
+                DontDestroyOnLoad(this.gameObject);
             }
 
-            PoolManager = new Dictionary<string, List<GameObject>>();
+            PoolManager = new Dictionary<string, Pool>();
         }
 
         /// <summary>
@@ -29,17 +30,35 @@ namespace Game
         /// <param name="amount"></param>
         public void GeneratePool(string name, GameObject obj, int amount)
         {
-            List<GameObject> objList = new List<GameObject>();
+            //Generates an empty pool
+            Pool newPool = new Pool();
 
+            //Generates a parent object for this pool
+            GameObject gm = new GameObject("Pool " + name);
+
+            //Generates each object based on the amount value
             for (int i = 0; i < amount; i++)
             {
                 GameObject currentObj = Instantiate(obj);
 
                 currentObj.SetActive(false);
-                objList.Add(currentObj);
+                currentObj.transform.SetParent(gm.transform);
+
+                newPool.PoolObjects.Add(currentObj);
             }
 
-            PoolManager.Add(name, objList);
+            //Adds the pool to the pool manager
+            PoolManager.Add(name, newPool);
+        }
+
+        /// <summary>
+        /// Returns an object in the pool specified.
+        /// </summary>
+        /// <param name="poolName"></param>
+        /// <returns></returns>
+        public GameObject GetObjectInPool(string poolName)
+        {
+            return PoolManager[poolName].GetObjectInPool;
         }
     }
 }

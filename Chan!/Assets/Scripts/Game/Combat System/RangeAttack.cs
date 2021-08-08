@@ -88,9 +88,15 @@ namespace Game
                 );
         }
 
-        private void ProjectileAttack()
+        public void ProjectileAttack()
         {
-
+            AttacksManager.GenerateProjectile(
+                AttackSpawnPoint.position,
+                AttackDamage,
+                Owner.Damageable,
+                AttackLayers,
+                _poolKey
+                );
         }
         #endregion
 
