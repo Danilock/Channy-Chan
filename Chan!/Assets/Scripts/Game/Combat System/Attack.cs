@@ -91,11 +91,22 @@ namespace Game {
             return endPoint;
         }
 
-        public static void GenerateProjectile(Vector2 spawnPosition, int damage, DamageableComponent owner, LayerMask layer, PoolKey pool)
+        public static void GenerateProjectile(Vector2 spawnPosition, Vector2 direction, int damage, DamageableComponent owner, LayerMask layer, PoolKey pool)
         {
             Projectile prj = ObjectPool.Instance.GetObjectInPool(pool.KeyName).GetComponent<Projectile>();
 
             prj.transform.position = spawnPosition;
+            prj.Direction = DetermineProjectileDirection(direction);
+        }
+
+        private static Vector2 DetermineProjectileDirection(Vector2 direction)
+        {
+            if (direction.x > 0f)
+                return Vector2.right;
+            else if (direction.x < 0f)
+                return Vector2.left;
+
+            return Vector2.zero;
         }
     }
 }

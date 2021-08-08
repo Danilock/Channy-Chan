@@ -1008,6 +1008,10 @@ PrefabInstance:
       propertyPath: _poolKey.KeyName
       value: Toko Pawa
       objectReference: {fileID: 0}
+    - target: {fileID: 1942592053, guid: 327c0fcee931801409bb3b7ca581966d, type: 3}
+      propertyPath: _projectileDirectionTransformReference
+      value: 
+      objectReference: {fileID: 2075507018}
     - target: {fileID: 472634323873666064, guid: 327c0fcee931801409bb3b7ca581966d, type: 3}
       propertyPath: m_Name
       value: Toko

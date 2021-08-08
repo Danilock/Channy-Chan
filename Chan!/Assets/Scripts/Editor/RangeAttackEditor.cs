@@ -20,6 +20,7 @@ namespace GameEditor
         private SerializedProperty _size;
         private SerializedProperty _poolKey;
         private SerializedProperty _projectile;
+        private SerializedProperty _projectileDirection;
 
         private AnimBool _animFoldout;
         #endregion
@@ -35,6 +36,7 @@ namespace GameEditor
             _size = serializedObject.FindProperty("_damageAreaSize");
             _poolKey = serializedObject.FindProperty("_poolKey");
             _projectile = serializedObject.FindProperty("_projectile");
+            _projectileDirection = serializedObject.FindProperty("_projectileDirectionTransformReference");
             #endregion
 
             _animFoldout = new AnimBool(true);
@@ -75,8 +77,15 @@ namespace GameEditor
 
             EditorGUILayout.Space();
 
-            if(_rangeType.enumValueIndex == 2)
+            if (_rangeType.enumValueIndex == 2)
+            {
+                EditorGUILayout.PropertyField(_projectileDirection);
+
+                EditorGUILayout.Space();
+                EditorGUILayout.Space();
+
                 EditorGUILayout.PropertyField(_poolKey);
+            }
 
             serializedObject.ApplyModifiedProperties();
         }

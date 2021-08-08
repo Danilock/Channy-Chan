@@ -16,6 +16,9 @@ namespace Game
         private static readonly int HashAttack = Animator.StringToHash("Attacking");
         private static readonly int HashAbility = Animator.StringToHash("UseAbility");
 
+
+        public static bool IsUsingAbilityAnimation = false;
+
         private void Start()
         {
             _player = GetComponent<PlayerController>();
@@ -55,6 +58,7 @@ namespace Game
         public static void TriggerAbilityAnimation()
         {
             _player.CurrentCharacterAnimator.SetTrigger(HashAbility);
+            IsUsingAbilityAnimation = true;
         }
 
         public static void RestoreCharacterAnimatorParameters(Character ch)

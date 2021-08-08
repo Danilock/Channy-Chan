@@ -61,7 +61,7 @@ namespace Game
 
         private void AbilityPerformed(InputAction.CallbackContext obj)
         {
-            if (!IsCurrentCharacterAllowedToUseAbility)
+            if (!IsCurrentCharacterAllowedToUseAbility || PlayerAnimations.IsUsingAbilityAnimation)
                 return;
 
             PlayerAnimations.TriggerAbilityAnimation();

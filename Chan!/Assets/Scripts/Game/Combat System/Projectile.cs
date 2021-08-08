@@ -8,15 +8,20 @@ namespace Game
     {
         public int Damage;
         public DamageableTeam Team;
+        private Rigidbody2D _rgb;
+
+        public Vector2 Direction;
+
+        private void Awake()
+        {
+            _rgb = GetComponent<Rigidbody2D>();
+        }
 
         private void Start()
         {
             StartCoroutine(DesactivateProjectile_Coroutune());
-        }
 
-        private void OnCollisionEnter2D(Collision2D collision)
-        {
-
+            _rgb.AddForce(Direction * 30f, ForceMode2D.Impulse);
         }
 
         private IEnumerator DesactivateProjectile_Coroutune()

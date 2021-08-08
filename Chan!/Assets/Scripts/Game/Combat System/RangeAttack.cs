@@ -14,6 +14,9 @@ namespace Game
 
         [SerializeField] private Projectile _projectile;
 
+        //The projectile will take in count the scale of this transform to determine the direction.
+        [SerializeField] private Transform _projectileDirectionTransformReference;
+
         private Vector2 GenerateEndPointOfLine
         {
             get
@@ -92,6 +95,7 @@ namespace Game
         {
             AttacksManager.GenerateProjectile(
                 AttackSpawnPoint.position,
+                _projectileDirectionTransformReference.localScale,
                 AttackDamage,
                 Owner.Damageable,
                 AttackLayers,
