@@ -61,10 +61,10 @@ namespace Game
 
         private void AbilityPerformed(InputAction.CallbackContext obj)
         {
-            if (!IsCurrentCharacterAllowedToUseAbility || PlayerAnimations.IsUsingAbilityAnimation)
+            if (!IsCurrentCharacterAllowedToUseAbility)
                 return;
 
-            PlayerAnimations.TriggerAbilityAnimation();
+            _player.CharacterHandlerInstance.CurrentCharacter.Ability.TriggerAbility();
         }
 
         public void ResetAttackIndex() => _currentAttackIndex = 0;

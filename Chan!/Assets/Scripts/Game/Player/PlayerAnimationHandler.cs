@@ -20,9 +20,6 @@ namespace Game {
         override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
             _player.SetPlayerStateByEnum(OnExitAnimState);
-
-            if (OnEnterAnimState == PlayerStates.AttackState)
-                PlayerAnimations.IsUsingAbilityAnimation = false;
         }
     }
 }

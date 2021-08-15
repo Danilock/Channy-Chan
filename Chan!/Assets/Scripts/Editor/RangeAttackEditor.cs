@@ -82,7 +82,6 @@ namespace GameEditor
                 EditorGUILayout.PropertyField(_projectileDirection);
 
                 EditorGUILayout.Space();
-                EditorGUILayout.Space();
 
                 EditorGUILayout.PropertyField(_poolKey);
             }

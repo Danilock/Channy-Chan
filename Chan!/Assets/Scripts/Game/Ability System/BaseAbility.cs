@@ -26,6 +26,11 @@ public abstract class BaseAbility : ScriptableObject
     public float Cooldown;
     public int BaseDamage;
 
+    [HideInInspector] public Animator OwnerAnimator
+    {
+        get => Owner.Animator;
+    }
+
     protected int GetDamageBasedInOwner
     {
         get => BaseDamage + Owner.Damage;

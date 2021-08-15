@@ -58,7 +58,6 @@ namespace Game
         public static void TriggerAbilityAnimation()
         {
             _player.CurrentCharacterAnimator.SetTrigger(HashAbility);
-            IsUsingAbilityAnimation = true;
         }
 
         public static void RestoreCharacterAnimatorParameters(Character ch)

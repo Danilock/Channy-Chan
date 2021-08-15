@@ -189,7 +189,7 @@ public class @ChanActions : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""0cd04af6-2419-4747-a854-2ebe008ff398"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",

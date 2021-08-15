@@ -18,6 +18,8 @@ public class BoomBoomAbility : BaseAbility
              Owner.Damageable,
              GetDamageBasedInOwner
             );
+
+        OwnerAnimator.SetTrigger("UseAbility");
     }
 
     public override void AbilityGizmos(MonoBehaviour mono)
