@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16956db236bedbb4ca2f4d325c038051, type: 3}
+  m_Name: Apple +10
+  m_EditorClassIdentifier: 
+  Portrait: {fileID: 21300000, guid: 79695b02ffbf9644cbc1ceab5822a653, type: 3}
+  Name: Apple
+  Description: Gives 10 health points to a character.
+  Usage: 0
+  IsStackableOnInventory: 1
+  DurationType: 1
+  BuffDuration: 0
+  AddHealth: 10
+  AddDamage: 0

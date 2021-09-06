@@ -49,6 +49,11 @@ namespace Game
             }
         }
 
+        public static bool InventoryKeyTriggered
+        {
+            get => Instance._chanActions.Player.InventoryKey.triggered;
+        }
+
         private void Awake()
         {
             #region Setup Singleton
@@ -63,5 +68,13 @@ namespace Game
             _chanActions = new ChanActions();
             _chanActions.Enable();
         }
+
+        public void EnableUIInput() => _chanActions.UI.Enable();
+
+        public void DisableUIInput() => _chanActions.UI.Disable();
+
+        public void EnablePlayerInput() => _chanActions.Player.Enable();
+
+        public void DisablePlayerInput() => _chanActions.Player.Disable();
     }
 }

@@ -60,6 +60,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "InventoryKey",
+                    "type": "Button",
+                    "id": "8b06ad97-02a1-4f79-b4dd-f6f459fc6c7c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -225,6 +233,17 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Basic Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0f9b9c40-7d18-48ce-b795-c35eca0e0d52",
+                    "path": "<Keyboard>/i",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "InventoryKey",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

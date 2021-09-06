@@ -73,6 +73,14 @@ public class @ChanActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""InventoryKey"",
+                    ""type"": ""Button"",
+                    ""id"": ""8b06ad97-02a1-4f79-b4dd-f6f459fc6c7c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -238,6 +246,17 @@ public class @ChanActions : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Basic Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0f9b9c40-7d18-48ce-b795-c35eca0e0d52"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""InventoryKey"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -822,6 +841,7 @@ public class @ChanActions : IInputActionCollection, IDisposable
         m_Player_PickCharacter1 = m_Player.FindAction("Pick Character 1", throwIfNotFound: true);
         m_Player_PickCharacter2 = m_Player.FindAction("Pick Character 2", throwIfNotFound: true);
         m_Player_PickCharacter3 = m_Player.FindAction("Pick Character 3", throwIfNotFound: true);
+        m_Player_InventoryKey = m_Player.FindAction("InventoryKey", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -890,6 +910,7 @@ public class @ChanActions : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_PickCharacter1;
     private readonly InputAction m_Player_PickCharacter2;
     private readonly InputAction m_Player_PickCharacter3;
+    private readonly InputAction m_Player_InventoryKey;
     public struct PlayerActions
     {
         private @ChanActions m_Wrapper;
@@ -901,6 +922,7 @@ public class @ChanActions : IInputActionCollection, IDisposable
         public InputAction @PickCharacter1 => m_Wrapper.m_Player_PickCharacter1;
         public InputAction @PickCharacter2 => m_Wrapper.m_Player_PickCharacter2;
         public InputAction @PickCharacter3 => m_Wrapper.m_Player_PickCharacter3;
+        public InputAction @InventoryKey => m_Wrapper.m_Player_InventoryKey;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -931,6 +953,9 @@ public class @ChanActions : IInputActionCollection, IDisposable
                 @PickCharacter3.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickCharacter3;
                 @PickCharacter3.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickCharacter3;
                 @PickCharacter3.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickCharacter3;
+                @InventoryKey.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventoryKey;
+                @InventoryKey.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventoryKey;
+                @InventoryKey.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventoryKey;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -956,6 +981,9 @@ public class @ChanActions : IInputActionCollection, IDisposable
                 @PickCharacter3.started += instance.OnPickCharacter3;
                 @PickCharacter3.performed += instance.OnPickCharacter3;
                 @PickCharacter3.canceled += instance.OnPickCharacter3;
+                @InventoryKey.started += instance.OnInventoryKey;
+                @InventoryKey.performed += instance.OnInventoryKey;
+                @InventoryKey.canceled += instance.OnInventoryKey;
             }
         }
     }
@@ -1119,6 +1147,7 @@ public class @ChanActions : IInputActionCollection, IDisposable
         void OnPickCharacter1(InputAction.CallbackContext context);
         void OnPickCharacter2(InputAction.CallbackContext context);
         void OnPickCharacter3(InputAction.CallbackContext context);
+        void OnInventoryKey(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

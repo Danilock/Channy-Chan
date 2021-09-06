@@ -21,7 +21,7 @@ namespace Game
         public float CurrentEXP;
         public float RequiredEXP = 100; // Required exp to get to other level.
 
-        public UnityEvent OnUpgradeLevel;
+        public UnityAction OnUpgradeLevel;
 
         public void GainExp(float value)
         {
