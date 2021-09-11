@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Localization;
 
 namespace InventorySystem
 {
@@ -26,6 +27,9 @@ namespace InventorySystem
         [Space, Header("Modifiers")]
         public int AddHealth;
         public int AddDamage;
+
+        [Space(5), Header("Localization")]
+        public LocalizedString LocalizedItemDescription;
     }
 
     public enum ItemUsage

@@ -230,7 +230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _item:
-    Profile: {fileID: 11400000, guid: 737fcb685c99a9d4ab08d44a93f243f4, type: 2}
+    Profile: {fileID: 11400000, guid: b233c23dd8d8df2408bb7f47ea6aa4d3, type: 2}
     Amount: 10
 --- !u!58 &87942898
 CircleCollider2D:
@@ -1102,7 +1102,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &645175522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1176,8 +1176,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1890011654}
-  m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_Father: {fileID: 1326692261}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1196,8 +1196,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a152968e7bd5c046a37887004f623de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsOpen: 0
   _scrollViewContent: {fileID: 1364676006}
   _slotPrefab: {fileID: 3024222515280697014, guid: a10f808ba91fb1043b07e07bb5ee055d, type: 3}
+  _itemArea: {fileID: 1890011653}
 --- !u!1 &688876712
 GameObject:
   m_ObjectHideFlags: 0
@@ -1478,6 +1480,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1326692261}
   - component: {fileID: 1326692262}
+  - component: {fileID: 1326692263}
   m_Layer: 0
   m_Name: UI Manager
   m_TagString: Untagged
@@ -1497,8 +1500,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2018350905}
+  - {fileID: 645175525}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1326692262
 MonoBehaviour:
@@ -1513,6 +1517,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _itemDescriptionPanel: {fileID: 1541251806}
+  _inventoryUI: {fileID: 645175526}
+--- !u!114 &1326692263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1326692260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 1
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1331195530 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 472634323873666067, guid: 327c0fcee931801409bb3b7ca581966d, type: 3}
@@ -1821,7 +1850,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1890011654
 RectTransform:
   m_ObjectHideFlags: 0

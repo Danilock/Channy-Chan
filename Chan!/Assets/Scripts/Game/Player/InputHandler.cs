@@ -33,6 +33,16 @@ namespace Game
             }
         }
 
+        public static bool PauseTriggered
+        {
+            get => Instance._chanActions.Player.Pause.triggered;
+        }
+
+        public static bool CloseMenuTriggered
+        {
+            get => Instance._chanActions.UI.Cancel.triggered;
+        }
+
         public static bool SelectFirstCharacterTriggered
         {
             get
@@ -49,7 +59,7 @@ namespace Game
             }
         }
 
-        public static bool InventoryKeyTriggered
+        public static bool InventoryTriggered
         {
             get => Instance._chanActions.Player.InventoryKey.triggered;
         }
@@ -69,12 +79,12 @@ namespace Game
             _chanActions.Enable();
         }
 
-        public void EnableUIInput() => _chanActions.UI.Enable();
+        public static void EnableUIInput() => Instance._chanActions.UI.Enable();
 
-        public void DisableUIInput() => _chanActions.UI.Disable();
+        public static void DisableUIInput() => Instance._chanActions.UI.Disable();
 
-        public void EnablePlayerInput() => _chanActions.Player.Enable();
+        public static void EnablePlayerInput() => Instance._chanActions.Player.Enable();
 
-        public void DisablePlayerInput() => _chanActions.Player.Disable();
+        public static void DisablePlayerInput() => Instance._chanActions.Player.Disable();
     }
 }

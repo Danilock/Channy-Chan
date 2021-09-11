@@ -10,21 +10,9 @@ namespace UI
         [SerializeField] private GameObject _scrollViewContent;
         [SerializeField] private SlotUI _slotPrefab;
 
+        [SerializeField] private GameObject _itemArea;
+
         private List<GameObject> _slotsInitialized = new List<GameObject>();
-
-        private void OnEnable()
-        {
-            InitializeSlotsUI();
-        }
-
-        private void OnDisable()
-        {
-            if (_slotsInitialized.Count == 0)
-                return;
-
-            foreach (GameObject slotUI in _slotsInitialized)
-                Destroy(slotUI);
-        }
 
         private void InitializeSlotsUI()
         {
@@ -43,12 +31,24 @@ namespace UI
 
         public override void OnMenuOpen()
         {
-            
+            base.OnMenuOpen();
+
+            _itemArea.SetActive(true);
+
+            InitializeSlotsUI();
         }
 
         public override void OnMenuClose()
         {
-            
+            base.OnMenuClose();
+
+            _itemArea.SetActive(false);
+
+            if (_slotsInitialized.Count == 0)
+                return;
+
+            foreach (GameObject slotUI in _slotsInitialized)
+                Destroy(slotUI);
         }
     }
 }

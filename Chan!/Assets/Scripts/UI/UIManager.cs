@@ -1,19 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Game;
 
 namespace UI {
     public class UIManager : Singleton<UIManager>
     {
         [SerializeField] private ItemDescriptionPanel _itemDescriptionPanel;
 
-        private MenuController _currentMenu; 
+        [Header("Menus References")]
+        [SerializeField] private InventoryUI _inventoryUI;
+
+        private List<MenuController> _openMenus = new List<MenuController>(); 
 
         public ItemDescriptionPanel GetItemDescriptionPanel
         {
             get => _itemDescriptionPanel;
         }
         
+        public MenuController GetMenuOnTopOpened
+        {
+            get => _openMenus[_openMenus.Count - 1];
+        }
+
         private void Awake()
         {
             #region Setup Singleton
@@ -27,17 +36,42 @@ namespace UI {
             #endregion
         }
 
-        /// <summary>
-        /// Sets a new menu on screen.
-        /// </summary>
-        /// <param name="newMenu"></param>
-        public void SetMenu(MenuController newMenu)
+        private void Update()
         {
-            _currentMenu?.OnMenuClose();
+            if (InputHandler.InventoryTriggered)
+                OpenMenu(_inventoryUI);
 
-            _currentMenu = newMenu;
 
-            _currentMenu?.OnMenuOpen();
+            if (InputHandler.CloseMenuTriggered)
+                CloseMenu(GetMenuOnTopOpened);
+        }
+
+        private void OpenMenu(MenuController menuToOpen)
+        {
+            //If there aren't menu opened, we disable player interactions
+            if (_openMenus.Count == 0)
+            {
+                InputHandler.DisablePlayerInput();
+                InputHandler.EnableUIInput();
+            }
+
+            _openMenus.Add(menuToOpen);
+
+            menuToOpen.OnMenuOpen();
+        }
+
+        private void CloseMenu(MenuController menuToClose)
+        {
+            _openMenus.Remove(menuToClose);
+
+            menuToClose.OnMenuClose();
+
+            //If all menus are close, we disable UI interactions
+            if(_openMenus.Count == 0)
+            {
+                InputHandler.DisableUIInput();
+                InputHandler.EnablePlayerInput();
+            }
         }
     }
 }

@@ -21,3 +21,11 @@ MonoBehaviour:
   BuffDuration: 300
   AddHealth: 0
   AddDamage: 50
+  LocalizedItemDescription:
+    m_TableReference:
+      m_TableCollectionName: GUID:31a075bbdeb67674c85326860c0758da
+    m_TableEntryReference:
+      m_KeyId: 1809029595844608
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 1
