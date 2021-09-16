@@ -14,10 +14,14 @@ namespace UI
         public virtual void OnMenuOpen()
         {
             IsOpen = true;
+
+            GameManager.Instance.PauseGame();
         }
         public virtual void OnMenuClose()
         {
             IsOpen = false;
+
+            GameManager.Instance.ResumeGame();
         }
     }
 }

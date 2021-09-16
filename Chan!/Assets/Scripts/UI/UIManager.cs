@@ -18,7 +18,7 @@ namespace UI {
             get => _itemDescriptionPanel;
         }
         
-        public MenuController GetMenuOnTopOpened
+        public MenuController GetCurrentMenu
         {
             get => _openMenus[_openMenus.Count - 1];
         }
@@ -43,12 +43,16 @@ namespace UI {
 
 
             if (InputHandler.CloseMenuTriggered)
-                CloseMenu(GetMenuOnTopOpened);
+                CloseMenu(GetCurrentMenu);
         }
 
+        /// <summary>
+        /// Open the given menu.
+        /// </summary>
+        /// <param name="menuToOpen"></param>
         private void OpenMenu(MenuController menuToOpen)
         {
-            //If there aren't menu opened, we disable player interactions
+            //If there's any menu opened we disable player interactions
             if (_openMenus.Count == 0)
             {
                 InputHandler.DisablePlayerInput();
@@ -60,13 +64,17 @@ namespace UI {
             menuToOpen.OnMenuOpen();
         }
 
+        /// <summary>
+        /// Close the given menu.
+        /// </summary>
+        /// <param name="menuToClose"></param>
         private void CloseMenu(MenuController menuToClose)
         {
             _openMenus.Remove(menuToClose);
 
             menuToClose.OnMenuClose();
 
-            //If all menus are close, we disable UI interactions
+            //If all menus are close we disable UI interactions
             if(_openMenus.Count == 0)
             {
                 InputHandler.DisableUIInput();

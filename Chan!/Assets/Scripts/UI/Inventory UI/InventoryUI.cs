@@ -12,7 +12,7 @@ namespace UI
 
         [SerializeField] private GameObject _itemArea;
 
-        private List<GameObject> _slotsInitialized = new List<GameObject>();
+        [SerializeField] private List<SlotUI> _slotsInitialized = new List<SlotUI>();
 
         private void InitializeSlotsUI()
         {
@@ -22,10 +22,12 @@ namespace UI
 
                 slotUI.transform.SetParent(_scrollViewContent.transform);
 
-                if(!currentSlot.IsEmpty)
+                if (!currentSlot.IsEmpty)
+                {
                     slotUI.UpdateSlotData(currentSlot);
+                }
 
-                _slotsInitialized.Add(slotUI.gameObject);
+                _slotsInitialized.Add(slotUI);
             }
         }
 
@@ -44,11 +46,20 @@ namespace UI
 
             _itemArea.SetActive(false);
 
+            EmptyInventoryUI();
+        }
+
+        private void EmptyInventoryUI()
+        {
             if (_slotsInitialized.Count == 0)
                 return;
 
-            foreach (GameObject slotUI in _slotsInitialized)
-                Destroy(slotUI);
+            foreach (SlotUI slotUI in _slotsInitialized)
+            {
+                Destroy(slotUI.gameObject);
+            }
+
+            _slotsInitialized.Clear();
         }
     }
 }

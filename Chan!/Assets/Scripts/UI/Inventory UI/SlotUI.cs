@@ -14,7 +14,21 @@ namespace UI
         [SerializeField] private Image _itemImage;
         [SerializeField] private TMP_Text _itemAmount;
         [SerializeField] private LocalizeStringEvent _stringEvent;
+
+        [Header("On Empty")]
+        [SerializeField] private Sprite _emptyCellImage;
+
         private Slot _slot = new Slot();
+
+        public Slot GetSlot
+        {
+            get => _slot;
+        }
+
+        public Item GetItemInSlot
+        {
+            get => _slot.Item;
+        }
 
         private string _localizedDescription;
         public string LocalizedDescription
@@ -56,6 +70,14 @@ namespace UI
 
         public void UpdateSlotData(Slot slot)
         {
+            if (slot.IsEmpty)
+            {
+                _itemImage.sprite = _emptyCellImage;
+                _itemAmount.text = "";
+
+                return;
+            }
+
             _itemImage.sprite = slot.Item.Profile.Portrait;
             _itemAmount.text = $"{slot.Item.Amount}";
 
@@ -69,7 +91,12 @@ namespace UI
             if (_slot.IsEmpty)
                 return;
 
-            Debug.Log(_slot.Item.Profile.Name);
+            _slot.UseItem();
+            UpdateSlotData(_slot);
+
+            if (_slot.IsEmpty)
+                UIManager.Instance.GetItemDescriptionPanel
+                    .gameObject.SetActive(false);
         }
     }
 }
