@@ -31,17 +31,25 @@ namespace Game.Rooms
             PickRoom(_rooms[0]);
         }
 
-        public void PickRoom(Room newRoom)
+        public void PickRoom(Room newRoom) => StartCoroutine(ProcessRoom(newRoom));
+
+        private IEnumerator ProcessRoom(Room newRoom)
         {
+            Time.timeScale = 0f;
+
             CurrentRoom?.DesactivateRoom();
 
             CurrentRoom = newRoom;
 
             CurrentRoom.ActivateRoom();
+
+            yield return new WaitForSecondsRealtime(1f);
+
+            Time.timeScale = 1f;
         }
 
         [ContextMenu("Find Rooms")]
-        private void FindAllRooms()
+        public void FindAllRooms()
         {
             _rooms.Clear();
 
