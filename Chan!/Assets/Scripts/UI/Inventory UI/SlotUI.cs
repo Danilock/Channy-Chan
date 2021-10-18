@@ -68,6 +68,11 @@ namespace UI
             UIManager.Instance.GetItemDescriptionPanel.gameObject.SetActive(false);
         }
 
+        private void OnDisable()
+        {
+            UIManager.Instance.GetItemDescriptionPanel.gameObject.SetActive(false);
+        }
+
         public void UpdateSlotData(Slot slot)
         {
             if (slot.IsEmpty)

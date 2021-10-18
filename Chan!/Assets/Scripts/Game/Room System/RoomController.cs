@@ -7,6 +7,7 @@ namespace Game.Rooms
     public class RoomController : Singleton<RoomController>
     {
         [SerializeField] private List<Room> _rooms = new List<Room>();
+        [SerializeField] private float _fadeTime = 1f;
 
         private Room _currentRoom;
 
@@ -43,7 +44,7 @@ namespace Game.Rooms
 
             CurrentRoom.ActivateRoom();
 
-            yield return new WaitForSecondsRealtime(1f);
+            yield return new WaitForSecondsRealtime(_fadeTime);
 
             Time.timeScale = 1f;
         }
