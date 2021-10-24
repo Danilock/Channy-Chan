@@ -33,6 +33,16 @@ namespace Game
             }
         }
 
+        public static bool PauseTriggered
+        {
+            get => Instance._chanActions.Player.Pause.triggered;
+        }
+
+        public static bool CloseMenuTriggered
+        {
+            get => Instance._chanActions.UI.Cancel.triggered;
+        }
+
         public static bool SelectFirstCharacterTriggered
         {
             get
@@ -49,6 +59,11 @@ namespace Game
             }
         }
 
+        public static bool InventoryTriggered
+        {
+            get => Instance._chanActions.Player.InventoryKey.triggered;
+        }
+
         private void Awake()
         {
             #region Setup Singleton
@@ -63,5 +78,13 @@ namespace Game
             _chanActions = new ChanActions();
             _chanActions.Enable();
         }
+
+        public static void EnableUIInput() => Instance._chanActions.UI.Enable();
+
+        public static void DisableUIInput() => Instance._chanActions.UI.Disable();
+
+        public static void EnablePlayerInput() => Instance._chanActions.Player.Enable();
+
+        public static void DisablePlayerInput() => Instance._chanActions.Player.Disable();
     }
 }

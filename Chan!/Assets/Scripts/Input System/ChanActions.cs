@@ -73,6 +73,22 @@ public class @ChanActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""InventoryKey"",
+                    ""type"": ""Button"",
+                    ""id"": ""8b06ad97-02a1-4f79-b4dd-f6f459fc6c7c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""51138ceb-6106-4f45-926f-120585d7bd75"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -165,6 +181,61 @@ public class @ChanActions : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
+                    ""name"": ""Arrow Keys"",
+                    ""id"": ""8f421eb0-f49f-4df5-a68a-f292633d43d4"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""f0d1860c-134a-4c93-998f-987510644623"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""d85be049-ae2d-46cb-bd3a-161d76c95400"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""760ca43c-7589-4209-b02f-c3b1a9fe4c70"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""7d01850f-1118-434a-acd2-ecdd80a0ae77"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": """",
                     ""id"": ""1043d4d0-44ac-4dfb-a630-0f147abd7fad"",
                     ""path"": ""<Keyboard>/1"",
@@ -238,6 +309,28 @@ public class @ChanActions : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Basic Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0f9b9c40-7d18-48ce-b795-c35eca0e0d52"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""InventoryKey"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6bf1d015-e738-4cdf-b69c-e31bb366d1c0"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -607,7 +700,7 @@ public class @ChanActions : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""82627dcc-3b13-4ba9-841d-e4b746d6553e"",
-                    ""path"": ""*/{Cancel}"",
+                    ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -822,6 +915,8 @@ public class @ChanActions : IInputActionCollection, IDisposable
         m_Player_PickCharacter1 = m_Player.FindAction("Pick Character 1", throwIfNotFound: true);
         m_Player_PickCharacter2 = m_Player.FindAction("Pick Character 2", throwIfNotFound: true);
         m_Player_PickCharacter3 = m_Player.FindAction("Pick Character 3", throwIfNotFound: true);
+        m_Player_InventoryKey = m_Player.FindAction("InventoryKey", throwIfNotFound: true);
+        m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -890,6 +985,8 @@ public class @ChanActions : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_PickCharacter1;
     private readonly InputAction m_Player_PickCharacter2;
     private readonly InputAction m_Player_PickCharacter3;
+    private readonly InputAction m_Player_InventoryKey;
+    private readonly InputAction m_Player_Pause;
     public struct PlayerActions
     {
         private @ChanActions m_Wrapper;
@@ -901,6 +998,8 @@ public class @ChanActions : IInputActionCollection, IDisposable
         public InputAction @PickCharacter1 => m_Wrapper.m_Player_PickCharacter1;
         public InputAction @PickCharacter2 => m_Wrapper.m_Player_PickCharacter2;
         public InputAction @PickCharacter3 => m_Wrapper.m_Player_PickCharacter3;
+        public InputAction @InventoryKey => m_Wrapper.m_Player_InventoryKey;
+        public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -931,6 +1030,12 @@ public class @ChanActions : IInputActionCollection, IDisposable
                 @PickCharacter3.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickCharacter3;
                 @PickCharacter3.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickCharacter3;
                 @PickCharacter3.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickCharacter3;
+                @InventoryKey.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventoryKey;
+                @InventoryKey.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventoryKey;
+                @InventoryKey.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventoryKey;
+                @Pause.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -956,6 +1061,12 @@ public class @ChanActions : IInputActionCollection, IDisposable
                 @PickCharacter3.started += instance.OnPickCharacter3;
                 @PickCharacter3.performed += instance.OnPickCharacter3;
                 @PickCharacter3.canceled += instance.OnPickCharacter3;
+                @InventoryKey.started += instance.OnInventoryKey;
+                @InventoryKey.performed += instance.OnInventoryKey;
+                @InventoryKey.canceled += instance.OnInventoryKey;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
         }
     }
@@ -1119,6 +1230,8 @@ public class @ChanActions : IInputActionCollection, IDisposable
         void OnPickCharacter1(InputAction.CallbackContext context);
         void OnPickCharacter2(InputAction.CallbackContext context);
         void OnPickCharacter3(InputAction.CallbackContext context);
+        void OnInventoryKey(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
