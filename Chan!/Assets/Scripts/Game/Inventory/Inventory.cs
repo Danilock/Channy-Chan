@@ -18,6 +18,16 @@ namespace InventorySystem
             get => _slots;
         }
 
+        public List<Slot> GetNotEmptySlots
+        {
+            get
+            {
+                List<Slot> slots = _slots.FindAll(x => x.IsEmpty == false);
+
+                return slots;
+            }
+        }
+
         public int MaxCapacity
         {
             get => _slots.Capacity;

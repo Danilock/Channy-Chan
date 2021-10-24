@@ -12,11 +12,11 @@ namespace UI
 
         [SerializeField] private GameObject _itemArea;
 
-        [SerializeField] private List<SlotUI> _slotsInitialized = new List<SlotUI>();
+        [SerializeField] private List<SlotUI> _slotsInstantiated = new List<SlotUI>();
 
-        private void InitializeSlotsUI()
+        public void InitializeSlotsUI(List<Slot> slots)
         {
-            foreach(Slot currentSlot in PlayerInventory.Instance.Inventory.GetSlots)
+            foreach(Slot currentSlot in slots)
             {
                 SlotUI slotUI = Instantiate(_slotPrefab, _scrollViewContent.transform);
 
@@ -27,7 +27,7 @@ namespace UI
                     slotUI.UpdateSlotData(currentSlot);
                 }
 
-                _slotsInitialized.Add(slotUI);
+                _slotsInstantiated.Add(slotUI);
             }
         }
 
@@ -37,7 +37,7 @@ namespace UI
 
             _itemArea.SetActive(true);
 
-            InitializeSlotsUI();
+            InitializeSlotsUI(PlayerInventory.Instance.Inventory.GetSlots);
         }
 
         public override void OnMenuClose()
@@ -49,17 +49,17 @@ namespace UI
             EmptyInventoryUI();
         }
 
-        private void EmptyInventoryUI()
+        public void EmptyInventoryUI()
         {
-            if (_slotsInitialized.Count == 0)
+            if (_slotsInstantiated.Count == 0)
                 return;
 
-            foreach (SlotUI slotUI in _slotsInitialized)
+            foreach (SlotUI slotUI in _slotsInstantiated)
             {
                 Destroy(slotUI.gameObject);
             }
 
-            _slotsInitialized.Clear();
+            _slotsInstantiated.Clear();
         }
     }
 }
